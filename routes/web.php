@@ -1,20 +1,31 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'Admin\AdminController@index')->name('home');
+
+Route::get('/admin/pages', 'Admin\AdminController@index')->name('home');
+
+Route::group(
+    [
+        'prefix' => 'admin',
+        'as' => 'admin.',
+        'namespace' => 'Admin',
+        'middleware' => ['auth', 'can:admin-panel'],
+    ],
+    function () {
+        // image uploads (in text redactor)
+        Route::post('/ajax/upload/image', 'UploadController@image')->name('ajax.upload.image');
+
+        Route::get('/', 'AdminController@index')->name('home');
+
+        // Admin >> Pages
+        Route::resource('pages', 'PageController');
+    });
+
+Route::get('/{page_path}', 'PageController@show')->name('page')->where('page_path', '.+');

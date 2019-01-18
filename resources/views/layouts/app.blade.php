@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @yield('meta')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -72,8 +74,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="app-content py-3">
+            <div class="container">
+                @include('layouts.partials.flash')
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
