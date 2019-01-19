@@ -10,15 +10,15 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Home page</td>
-                <td>{{$settings->getHome()->title}}</td>
-                <td>
-                        <a href="{{route('admin.settings.homePage')}}" class="btn btn-outline-primary">
-                            <i class="fas fa-pencil-alt"></i> Change
-                        </a>
-                </td>
-            </tr>
+        <tr>
+            <td>Home page</td>
+            <td>{{$settings->getHome()->title}}</td>
+            <td>
+                <a href="{{route('admin.settings.homePage')}}" class="btn btn-outline-primary">
+                    <i class="fas fa-pencil-alt"></i> Change
+                </a>
+            </td>
+        </tr>
         </tbody>
     </table>
 @endsection
