@@ -4,7 +4,7 @@
     @include('layouts.head')
 </head>
 <body>
-    @include('layouts.topMenu')
+    @include('layouts.partials.top_menu')
 
     <main class="app-content py-3">
         <div class="container">
@@ -13,20 +13,20 @@
         </div>
     </main>
 
+    @include('layouts.partials.footer')
 
 @if (auth() -> check() && auth()->user()->isAdmin() && !Request::is('admin*'))
     @include('admin.partials.bar')
 
     @if (Session::get('interactive-editing'))
-        <script src="assets/content-tools.min.js"></script>
-        <script src="assets/editor.js"></script>
+        <script src="{{ asset('assets/content-tools.min.js') }}"></script>
+        <script src="{{ asset('assets/editor.js') }}"></script>
 
         <script>
             window.page = {{$page->id}};
             window.token = "{{csrf_token()}}";
         </script>
     @endif
-
 @endif
 </body>
 </html>

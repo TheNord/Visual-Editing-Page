@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Kalnoy\Nestedset\NodeTrait;
 
 class Menu extends Model

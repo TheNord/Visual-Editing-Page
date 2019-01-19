@@ -11445,3 +11445,24 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 90px;
+  color: #777;
+  background-color: #FFF;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+

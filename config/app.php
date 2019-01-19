@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // additional variables when rendering pages
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

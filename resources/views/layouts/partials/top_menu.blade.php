@@ -12,7 +12,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                @foreach ($topMenuPages as $menu)
 
+                    @if ($menu->hasChildren())
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ $menu->page->title }}<span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach ($moreMenu = $menu->children()->get() as $menu)
+                                    <a class="dropdown-item"
+                                       href="{{ route('page', page_path($menu->page)) }}">{{ $menu->page->title }}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
+
+                    @if ($menu->isRoot())
+                        <li><a class="nav-link" href="{{ route('page', page_path($menu->page)) }}">{{ $menu->page->title }}</a></li>
+                    @endif
+
+                @endforeach
             </ul>
 
             <!-- Right Side Of Navbar -->
