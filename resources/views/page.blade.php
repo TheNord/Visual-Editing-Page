@@ -16,6 +16,7 @@
             @endforeach
         </ul>
     @endif
-
-    {!! $page->content !!}
+    <div data-editable data-name="main-content">
+        {!! $page->content !!}
+    </div>
 @endsection

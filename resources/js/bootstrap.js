@@ -12,7 +12,13 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('codemirror-formatting');
+    require('codemirror');
+    require('codemirror/mode/htmlembedded/htmlembedded');
     require('summernote/dist/summernote-bs4');
+
+
+
 } catch (e) {}
 
 /**

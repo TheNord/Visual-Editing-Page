@@ -1,0 +1,129 @@
+#adminbar {
+    direction: ltr;
+    color: #ccc;
+    font: 400 13px/32px "Open Sans",sans-serif;
+    height: 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 600px;
+    z-index: 99999;
+    background: #23282d;
+}
+
+body {
+    margin-top: 32px;
+}
+
+.account-panel {
+    float: right;
+    padding-right: 25px !important;
+}
+
+.dashboard{
+    padding-left: 25px;
+}
+
+.left-a-panel {
+    float: left;
+}
+
+#adminbar ul {
+    background: 0 0;
+    clear: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-indent: 0;
+    z-index: 99999;
+}
+
+#adminbar * {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    position: static;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+
+#adminbar .left-a-panel ul {
+    text-align: left;
+}
+
+#adminbar ul li {
+    background: 0 0;
+    list-style: none;
+    z-index: 99999;
+    display: inline;
+    padding-left: 30px;
+}
+
+#adminbar a {
+    color: #e2e2e2 !important;
+}
+
+#adminbar a:hover {
+    color: #26ddff !important;
+    text-decoration: none !important;
+}
+
+.ab-icon {
+    padding-right: 10px !important;
+}
+
+/* Alignment styles for images, videos and iframes in editable regions */
+
+/* Center (default) */
+[data-editable] iframe,
+[data-editable] image,
+[data-editable] [data-ce-tag=img],
+[data-editable] img,
+[data-editable] video {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+/* Left align */
+[data-editable] .align-left {
+    clear: initial;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/* Right align */
+[data-editable].align-right {
+    clear: initial;
+    float: right;
+    margin-left: 0.5em;
+}
+
+/* Alignment styles for text in editable regions */
+[data-editable] .text-center {
+    text-align: center;
+}
+
+[data-editable] .text-left {
+    text-align: left;
+}
+
+[data-editable] .text-right {
+    text-align: right;
+}
+​
