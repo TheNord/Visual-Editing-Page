@@ -20,7 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @if (auth() -> check() && auth()->user()->isAdmin())
+    @if (auth()->check() && auth()->user()->isAdmin() && !Request::is('admin*'))
         <link href="{{ asset('css/admin-bar.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/content-tools.min.css">
     @endif
@@ -89,7 +89,7 @@
     </main>
 
 
-@if (auth() -> check() && auth()->user()->isAdmin())
+@if (auth() -> check() && auth()->user()->isAdmin() && !Request::is('admin*'))
     @include('admin.partials.bar')
 
     @if (Session::get('interactive-editing'))

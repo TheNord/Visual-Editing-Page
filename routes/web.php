@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PageController@showHome');
 
 Route::get('/admin', 'Admin\AdminController@index')->name('home');
 
@@ -27,6 +27,11 @@ Route::group(
 
         // Admin >> Pages
         Route::resource('pages', 'PageController');
+
+        // Admin >> Settings
+        Route::get('/settings', 'Settings\SettingController@index')->name('settings.index');
+        Route::get('/settings/homepage', 'Settings\SettingController@changeHome')->name('settings.homePage');
+        Route::put('/settings/homepage', 'Settings\SettingController@updateHome')->name('settings.updateHomePage');
 
         // Page editing
         Route::get('/interactive/start', 'PageEditor@start')->name('start.editing');
