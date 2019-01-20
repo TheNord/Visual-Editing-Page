@@ -16,10 +16,12 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('page_id')->references('id')->on('pages')->onDelete('CASCADE');
+            $table->integer('page_id')->unsigned();
             $table->text('title');
             $table->timestamps();
             NestedSet::columns($table);
+
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('CASCADE');
         });
     }
 

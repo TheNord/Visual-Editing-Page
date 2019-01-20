@@ -1,0 +1,23 @@
+.errors {
+    margin-top: 15px;
+}
+
+.fl {
+    float: left;
+}
+
+.delete {
+    float: left;
+    border: 0;
+    background: none;
+    padding: 0;
+    color: #6f1d00;
+}
+
+.move {
+    float: left;
+    border: 0;
+    background: none;
+    padding: 0;
+    color: #6f1d00;
+}

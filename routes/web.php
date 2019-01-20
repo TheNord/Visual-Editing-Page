@@ -7,10 +7,6 @@ Auth::routes();
 
 Route::get('/', 'PageController@showHome');
 
-Route::get('/admin', 'Admin\AdminController@index')->name('home');
-
-Route::get('/admin/pages', 'Admin\AdminController@index')->name('home');
-
 Route::group(
     [
         'prefix' => 'admin',
@@ -26,10 +22,10 @@ Route::group(
         Route::get('/', 'AdminController@index')->name('home');
 
         // Admin >> Pages
-        Route::resource('pages', 'PageController');
+        Route::resource('pages', 'PageController')->except('show');
 
         // Admin >> Menu
-        Route::resource('menu', 'MenuController');
+        Route::resource('menu', 'MenuController')->except('show');
 
         // Admin >> Settings
         Route::get('/settings', 'Settings\SettingController@index')->name('settings.index');

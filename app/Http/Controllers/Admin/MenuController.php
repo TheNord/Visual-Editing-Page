@@ -37,12 +37,7 @@ class MenuController extends Controller
             'parent_id' => $request['parent']
         ]);
 
-        return redirect()->route('admin.menu.show', $page);
-    }
-
-    public function show(Menu $menu)
-    {
-        return view('admin.menu.show', compact('menu'));
+        return redirect()->route('admin.menu.index', $page);
     }
 
     public function edit(Menu $menu)
@@ -67,7 +62,7 @@ class MenuController extends Controller
             'parent_id' => $request['parent']
         ]);
 
-        return redirect()->route('admin.menu.show', $menu);
+        return redirect()->route('admin.menu.index', $menu);
     }
 
     public function first(Menu $menu)

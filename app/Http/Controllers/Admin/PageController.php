@@ -37,12 +37,7 @@ class PageController extends Controller
             'description' => $request['description'],
         ]);
 
-        return redirect()->route('admin.pages.show', $page);
-    }
-
-    public function show(Page $page)
-    {
-        return view('admin.pages.show', compact('page'));
+        return redirect()->route('admin.pages.index', $page);
     }
 
     public function edit(Page $page)
@@ -60,7 +55,7 @@ class PageController extends Controller
             'content' => $request['content'],
             'description' => $request['description'],
         ]);
-        return redirect()->route('admin.pages.show', $page);
+        return redirect()->route('admin.pages.index', $page);
     }
 
     public function destroy(Page $page)

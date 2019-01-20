@@ -1,47 +1,85 @@
-@extends('layouts.app')
+@extends('admin.layout')
+
 @section('content')
-    @include('admin.menu._nav')
-    <p><a href="{{ route('admin.menu.create') }}" class="btn btn-success">Add page</a></p>
-    <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Page</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($menus as $menu)
-            <tr>
-                <td>
-                    @for ($i = 0; $i < $menu->depth; $i++) &mdash; @endfor
-                    <a href="{{ route('admin.menu.show', $menu) }}">{{ $menu->title }}</a>
-                </td>
-                <td>
-                    <a href="{{ route('page', page_path($menu->page)) }}"> {{ $menu->page->title }}</a>
-                </td>
-                <td>
-                    <div class="d-flex flex-row">
-                        <form method="POST" action="{{ route('admin.menu.first', $menu) }}" class="mr-1">
-                            @csrf
-                            <button class="btn btn-sm btn-outline-primary"><span class="fa fa-angle-double-up"></span></button>
-                        </form>
-                        <form method="POST" action="{{ route('admin.menu.up', $menu) }}" class="mr-1">
-                            @csrf
-                            <button class="btn btn-sm btn-outline-primary"><span class="fa fa-angle-up"></span></button>
-                        </form>
-                        <form method="POST" action="{{ route('admin.menu.down', $menu) }}" class="mr-1">
-                            @csrf
-                            <button class="btn btn-sm btn-outline-primary"><span class="fa fa-angle-down"></span></button>
-                        </form>
-                        <form method="POST" action="{{ route('admin.menu.last', $menu) }}" class="mr-1">
-                            @csrf
-                            <button class="btn btn-sm btn-outline-primary"><span class="fa fa-angle-double-down"></span></button>
-                        </form>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Управление меню
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Examples</a></li>
+                <li class="active">Blank page</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <a href="{{ route('admin.menu.create') }}" class="btn btn-success">Добавить</a>
                     </div>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+                    <table id="main-table" class="table table-bordered table-striped offsort">
+                        <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Страница</th>
+                            <th>Позиция</th>
+                            <th>Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($menus as $menu)
+                            <tr>
+                                <td>
+                                    @for ($i = 0; $i < $menu->depth; $i++) &mdash; @endfor
+                                    {{ $menu->title }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('page', page_path($menu->page)) }}"> {{ $menu->page->title }}</a>
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-row">
+                                        <form method="POST" action="{{ route('admin.menu.first', $menu) }}" class="mr-1">
+                                            @csrf
+                                            <button class="btn btn-sm btn-outline-primary move"><span class="fa fa-angle-double-up"></span></button>
+                                        </form>
+                                        <form method="POST" action="{{ route('admin.menu.up', $menu) }}" class="mr-1">
+                                            @csrf
+                                            <button class="btn btn-sm btn-outline-primary move"><span class="fa fa-angle-up"></span></button>
+                                        </form>
+                                        <form method="POST" action="{{ route('admin.menu.down', $menu) }}" class="mr-1">
+                                            @csrf
+                                            <button class="btn btn-sm btn-outline-primary move"><span class="fa fa-angle-down"></span></button>
+                                        </form>
+                                        <form method="POST" action="{{ route('admin.menu.last', $menu) }}" class="mr-1">
+                                            @csrf
+                                            <button class="btn btn-sm btn-outline-primary move"><span class="fa fa-angle-double-down"></span></button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td><a href="{{ route('admin.menu.edit', $menu->id) }}" class="fa fa-pencil fl"></a>
+                                    {{ Form::open(['route' => ['admin.menu.destroy', $menu->id], 'method'=>'delete']) }}
+                                    <button onclick="return confirm('Are you sure?')" type="submit" class="delete">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+                                    {{ Form::close() }}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </section>
+        <!-- /.content -->
+    </div>
 @endsection
