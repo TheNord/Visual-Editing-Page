@@ -32,10 +32,13 @@ Route::group(
         Route::get('/settings/homepage', 'Settings\SettingController@changeHome')->name('settings.homePage');
         Route::put('/settings/homepage', 'Settings\SettingController@updateHome')->name('settings.updateHomePage');
 
+        // Admin >> Widgets
+        Route::resource('/widgets', 'WidgetsController');
+
         // Page editing
-        Route::get('/interactive/start', 'PageEditor@start')->name('start.editing');
-        Route::get('/interactive/stop', 'PageEditor@stop')->name('stop.editing');
-        Route::post('/interactive/{page}/save', 'PageEditor@save');
+        Route::get('/interactive/start', 'PageEditorController@start')->name('start.editing');
+        Route::get('/interactive/stop', 'PageEditorController@stop')->name('stop.editing');
+        Route::post('/interactive/{page}/save', 'PageEditorController@save');
 
         // Menu change position
         Route::group(['prefix' => 'menu/{menu}', 'as' => 'menu.'], function () {

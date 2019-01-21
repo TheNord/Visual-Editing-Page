@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class PageEditor extends Controller
+class PageEditorController extends Controller
 {
     public function start()
     {
