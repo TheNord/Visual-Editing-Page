@@ -23,7 +23,7 @@
                         'method' => 'put']
                         ) }}
                 <div class="box-body">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input name="title" type="text" class="form-control"

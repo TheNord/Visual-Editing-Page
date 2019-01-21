@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+    {{ $page->title }}
+@endsection
+
 @section('meta')
     @if ($page->hasDescription())
         <meta name="description" content="{{ $page->description }}">
+    @endif
+    @if ($page->hasKeywords())
+        <meta name="keywords" content="{{ $page->keywords }}">
     @endif
 @endsection
 

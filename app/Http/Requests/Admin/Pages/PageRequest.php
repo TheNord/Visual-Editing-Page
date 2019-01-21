@@ -19,6 +19,7 @@ class PageRequest extends FormRequest
             'parent' => 'nullable|integer|exists:pages,id',
             'content' => 'required|string',
             'description' => 'nullable|string',
+            'keywords' => 'nullable|string',
         ];
     }
 }

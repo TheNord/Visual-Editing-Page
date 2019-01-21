@@ -34,6 +34,7 @@ class PageController extends Controller
             'slug' => $request['slug'],
             'parent_id' => $request['parent'],
             'content' => $request['content'],
+            'keywords' => $request['keywords'],
             'description' => $request['description'],
         ]);
 
@@ -53,6 +54,7 @@ class PageController extends Controller
             'slug' => $request['slug'],
             'parent_id' => $request['parent'],
             'content' => $request['content'],
+            'keywords' => $request['keywords'],
             'description' => $request['description'],
         ]);
         return redirect()->route('admin.pages.index', $page);

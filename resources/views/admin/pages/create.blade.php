@@ -21,7 +21,7 @@
                 </div>
                 <div class="box-body">
                     {{ Form::open(['route' => 'admin.pages.store']) }}
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Заголовок</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder=""
@@ -53,12 +53,19 @@
                             <textarea name="content" id="contentArea" rows="10"
                                       class="form-control summernote"
                                       data-image-url="{{ route('admin.ajax.upload.image') }}"
-                                      >{{ old('content') }}</textarea>
+                            >{{ old('content') }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="description" class="col-form-label">Описание (мета)</label>
-                            <textarea id="description" class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
+                            <textarea id="description" class="form-control" name="description"
+                                      rows="3">{{ old('description') }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="keywords" class="col-form-label">Ключевые слова (через запятую)</label>
+                            <input type="text" name="keywords" class="form-control" id="keywords" placeholder=""
+                                   value="{{ old('keywords') }}">
                         </div>
 
                         <!-- /.box-body -->

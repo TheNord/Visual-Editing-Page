@@ -20,7 +20,7 @@
                     @include('admin.partials.errors')
                 </div>
                 <div class="box-body">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         {{ Form::open([
                         'route' =>  ['admin.pages.update', $page->id],
                         'method' => 'put']
@@ -55,15 +55,21 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Полный текст</label>
-                            <textarea name="content" id="" cols="30" rows="10"
+                            <textarea name="content" id="content" cols="30" rows="10"
                                       data-image-url="{{ route('admin.ajax.upload.image') }}"
                                       class="form-control summernote">{{ $page->content }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Описание (мета)</label>
-                            <textarea name="description" id="" rows="3"
+                            <textarea name="description" id="description" rows="3"
                                       class="form-control">{{ $page->description }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="keywords" class="col-form-label">Ключевые слова (через запятую)</label>
+                            <input type="text" name="keywords" class="form-control" id="keywords" placeholder=""
+                                   value="{{ $page->keywords }}">
                         </div>
 
                         <!-- /.box-body -->

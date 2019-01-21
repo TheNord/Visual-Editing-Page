@@ -26,6 +26,11 @@ class Page extends Model
         return !!$this->description;
     }
 
+    public function hasKeywords()
+    {
+        return !!$this->keywords;
+    }
+
     /** Get full path to the page */
     public function getPath(): string
     {
