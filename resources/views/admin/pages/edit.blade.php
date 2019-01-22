@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug">Слаг</label>
+                            <label for="slug">Слаг (URL)</label>
                             <input type="text" name="slug" class="form-control" id="slug" placeholder=""
                                    value="{{ $page->slug }}">
                         </div>

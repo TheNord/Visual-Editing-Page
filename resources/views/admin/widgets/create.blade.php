@@ -22,16 +22,18 @@
                 <div class="box-body">
                     <div class="col-md-12">
 
-                        <div class="box box-solid">
+                        <div class="box box-solid collapsed-box">
                             <div class="box-header with-border">
                                 <i class="fa fa-text-width"></i>
-
-                                <h3 class="box-title">Описание</h3>
+                                <h3 class="box-title">Написание шаблона виджетов</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <!-- /.box-header -->
                             <div class="box-body">
                                 <dl>
-                                    <dt>Написание шаблона виджетов</dt>
                                     <dd>В написании шаблона для виджета вы можете использовать любые html тэги.</dd>
                                     <dd>А также php код и вставку скриптов, но будьте осторожны и предварительно проверьте ваш код, это может испортить сайт.</dd>
                                     <dd>Для проверки PHP кода вы можете использовать сервис: <a href="https://code.phpsandbox.org/" target="_blank">PHPSandbox</a> либо любую другую песочницу PHP.</dd>
@@ -43,11 +45,8 @@
                                     <dd>Либо в официальной документации на <a href="https://laravel.com/docs/5.7/blade">английском языке</a>.</dd>
                                 </dl>
                             </div>
-                            <!-- /.box-body -->
-
-                            <!-- /.box -->
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder=""

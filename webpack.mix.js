@@ -50,3 +50,7 @@ mix.copy('resources/admin/plugins/iCheck/minimal/blue.png', 'public/css');
 //     'resources/admin/dist/js/demo.js',
 //     'resources/admin/dist/js/scripts.js'
 // ], 'public/js/admin.js');
+
+mix.js([
+    'resources/js/admin-vue.js'
+], 'public/js/admin-vue.js');

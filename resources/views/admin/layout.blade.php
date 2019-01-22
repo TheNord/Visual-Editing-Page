@@ -424,6 +424,7 @@
 <!-- ./wrapper -->
 
 <script src="{{ asset('/js/admin.js') }}"></script>
+<script src="{{ asset('/js/admin-vue.js') }}"></script>
 <script src="{{ asset('/js/scripts.js') }}"></script>
 
 <!-- include summernote css/js -->

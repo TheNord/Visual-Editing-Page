@@ -23,7 +23,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($moreMenu = $menu->children()->get() as $menu)
                                     <a class="dropdown-item"
-                                       href="{{ route('page', page_path($menu->page)) }}">{{ $menu->page->title }}</a>
+                                       href="{{ route('page', page_path($menu->page)) }}">{{ $menu->title }}</a>
                                 @endforeach
                             </div>
                         </li>

@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputSlug">Слаг</label>
+                            <label for="exampleInputSlug">Слаг (URL)</label>
                             <input type="text" class="form-control" id="exampleInputSlug" name="slug" placeholder=""
                                    value="{{ old('slug') }}">
                         </div>

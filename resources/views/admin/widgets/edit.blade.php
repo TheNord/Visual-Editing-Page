@@ -23,6 +23,33 @@
                         ) }}
                 <div class="box-body">
                     <div class="col-md-12">
+
+
+                        <div class="box box-solid collapsed-box">
+                            <div class="box-header with-border">
+                                <i class="fa fa-text-width"></i>
+                                <h3 class="box-title">Написание шаблона виджетов</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <dl>
+                                    <dd>В написании шаблона для виджета вы можете использовать любые html тэги.</dd>
+                                    <dd>А также php код и вставку скриптов, но будьте осторожны и предварительно проверьте ваш код, это может испортить сайт.</dd>
+                                    <dd>Для проверки PHP кода вы можете использовать сервис: <a href="https://code.phpsandbox.org/" target="_blank">PHPSandbox</a> либо любую другую песочницу PHP.</dd>
+                                    <dd>Для проверки HTML+JS кода вы можете использовать сервис: <a href="https://jsfiddle.net/">JSfiddle</a>.</dd>
+                                    <br>
+                                    <dt>Шаблонизатор Blade</dt>
+                                    <dd>Также для удобства написания виджета, вы можете использовать шаблонизатор Blade, он позволяет писать облегченный PHP код.</dd>
+                                    <dd>Подробную документацию о шаблонизаторе вы можете прочитать на <a href="http://laravel.su/docs/5.4/blade">русском языке</a>.</dd>
+                                    <dd>Либо в официальной документации на <a href="https://laravel.com/docs/5.7/blade">английском языке</a>.</dd>
+                                </dl>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="" value="{{ $widget->name }}">
