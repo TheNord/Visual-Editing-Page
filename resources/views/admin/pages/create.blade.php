@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputSlug">Слаг</label>
+                            <label for="exampleInputSlug">Слаг (URL)</label>
                             <input type="text" class="form-control" id="exampleInputSlug" name="slug" placeholder=""
                                    value="{{ old('slug') }}">
                         </div>
@@ -56,14 +56,16 @@
                             >{{ old('content') }}</textarea>
                         </div>
 
+                        <h3 class="meta-block">Мета информация</h3>
+
                         <div class="form-group">
-                            <label for="description" class="col-form-label">Описание (мета)</label>
+                            <label for="description" class="col-form-label">Описание</label>
                             <textarea id="description" class="form-control" name="description"
                                       rows="3">{{ old('description') }}</textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="keywords" class="col-form-label">Ключевые слова (через запятую)</label>
+                            <label for="keywords" class="col-form-label">Ключевые слова</label>
                             <input type="text" name="keywords" class="form-control" id="keywords" placeholder=""
                                    value="{{ old('keywords') }}">
                         </div>

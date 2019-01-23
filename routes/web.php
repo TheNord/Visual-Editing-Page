@@ -40,6 +40,13 @@ Route::group(
         Route::get('/interactive/stop', 'PageEditorController@stop')->name('stop.editing');
         Route::post('/interactive/{page}/save', 'PageEditorController@save');
 
+        // Admin >> TemplateManager
+        Route::get('/template-manager', 'TemplateController@index')->name('template-manager.index');
+        Route::post('/template-manager/update', 'TemplateController@update');
+        Route::post('/template-manager/load', 'TemplateController@load');
+        Route::post('/template-manager/explore', 'TemplateController@explore');
+        Route::post('/template-manager/tree', 'TemplateController@tree');
+
         // Menu change position
         Route::group(['prefix' => 'menu/{menu}', 'as' => 'menu.'], function () {
             Route::post('/first', 'MenuController@first')->name('first');

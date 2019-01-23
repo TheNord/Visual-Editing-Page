@@ -16,7 +16,7 @@ class PageController extends Controller
     public function show(PagePath $path)
     {
         $page = $path->page;
-        return view('page', compact('page'));
+        return view('template.page', compact('page'));
     }
 
     public function showHome()
@@ -24,6 +24,6 @@ class PageController extends Controller
         // need cache
         $pageId = Settings::where('name', 'home_page')->first();
         $page = Page::find($pageId->value);
-        return view('page', compact('page'));
+        return view('template.page', compact('page'));
     }
 }

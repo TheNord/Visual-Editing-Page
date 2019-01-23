@@ -22,6 +22,10 @@
   },
   "dependencies": {
     "ContentTools": "^1.6.10",
-    "vue": "^2.5.22"
+    "codemirror": "^5.43.0",
+    "codemirror-formatting": "^1.0.0",
+    "vue": "^2.5.22",
+    "vue-codemirror": "^4.0.6",
+    "vue-toasted": "^1.1.26"
   }
 }

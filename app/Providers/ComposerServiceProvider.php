@@ -11,6 +11,6 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // when rendering layouts.app inject MenuPagesComposer
-        View::composer('layouts.app', MenuPagesComposer::class);
+        View::composer('template.layouts.app', MenuPagesComposer::class);
     }
 }

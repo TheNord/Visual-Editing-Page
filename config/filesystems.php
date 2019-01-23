@@ -48,6 +48,11 @@ return [
             'root' => public_path(),
         ],
 
+        'template_manage' => [
+            'driver' => 'local',
+            'root' => resource_path() . '/views/template',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

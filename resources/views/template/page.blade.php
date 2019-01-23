@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.layouts.app')
 
 @section('title')
     {{ $page->title }}

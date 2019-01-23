@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @include('layouts.head')
+    @include('template.layouts.head')
 </head>
 <body>
-    @include('layouts.partials.top_menu')
+    @include('template.layouts.partials.top_menu')
 
     <main class="app-content py-3">
         <div class="container">
-            @include('layouts.partials.flash')
+            @include('template.layouts.partials.flash')
             @yield('content')
         </div>
     </main>
 
-    @include('layouts.partials.footer')
+    @include('template.layouts.partials.footer')
 
 @if (auth() -> check() && auth()->user()->isAdmin() && !Request::is('admin*'))
     @include('admin.partials.bar')

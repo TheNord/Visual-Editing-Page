@@ -21,3 +21,9 @@
     padding: 0;
     color: #6f1d00;
 }
+
+.meta-block {
+    border-top: 3px solid #00c0ef;
+    padding: 10px 0 5px 0;
+    font-size: 18px;
+}
