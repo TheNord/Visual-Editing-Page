@@ -60,14 +60,16 @@
                                       class="form-control summernote">{{ $page->content }}</textarea>
                         </div>
 
+                        <h3 class="meta-block">Мета информация</h3>
+
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Описание (мета)</label>
+                            <label for="exampleInputEmail1">Описание</label>
                             <textarea name="description" id="description" rows="3"
                                       class="form-control">{{ $page->description }}</textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="keywords" class="col-form-label">Ключевые слова (через запятую)</label>
+                            <label for="keywords" class="col-form-label">Ключевые слова</label>
                             <input type="text" name="keywords" class="form-control" id="keywords" placeholder=""
                                    value="{{ $page->keywords }}">
                         </div>

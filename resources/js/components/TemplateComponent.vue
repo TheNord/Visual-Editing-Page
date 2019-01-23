@@ -3,7 +3,7 @@
         <section class="content">
             <div class="row">
 
-                <explorer :active="active" :content="content"></explorer>
+                <explorer></explorer>
 
                 <div class="col-md-9">
                     <div class="box box-primary">
@@ -14,7 +14,7 @@
 
                         <div class="box box-primary">
                             <div class="box-body">
-                                <div v-if="active == null">
+                                <div v-if="!active">
                                      <div class="box box-solid">
                                         <div class="box-header with-border">
                                             <i class="fa fa-text-width"></i>
@@ -69,7 +69,8 @@ export default {
     data() {
         return {
             code: '',
-            active: null,
+            active: false,
+            path: null,
             cmOptions: {
                 tabSize: 4,
                 styleActiveLine: true,
@@ -81,19 +82,27 @@ export default {
         }
     },
     created() {
-        this.getContent();
+        this.listeners();
     },
     methods: {
-        getFile(template) {
+        listeners(){
+            EventBus.$on('getFile', (path) => {
+                this.getFile(path)
+            });
+        },
+        getFile(path) {
             axios
-                .post('/admin/template-manager/load', {template: template})
-                .then(res => this.code = res.data)
+                .post('/admin/template-manager/load', {path: path})
+                .then(res => {
+                    this.code = res.data;
+                    this.path = path;
+                    this.active = true;
+                })
                 .catch(err => console.log(err));
-            this.active = template; 
         },
         onSubmit() {
             axios
-                .post('/admin/template-manager/update', {code: this.code, template: this.active})
+                .post('/admin/template-manager/update', {code: this.code, path: this.path})
                 .then(res => {
                         let toast = this.$toasted.show('Успешно сохранено!', {
                             position: "top-right",
@@ -104,7 +113,7 @@ export default {
         },
         cancel() {
             this.code = null;
-            this.active = null;
+            this.active = false;
         }
     },
     components: {

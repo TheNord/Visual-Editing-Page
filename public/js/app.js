@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11587,7 +11587,8 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 29 */
+/* 29 */,
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -21958,7 +21959,7 @@ return jQuery;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -21966,7 +21967,7 @@ return jQuery;
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(1), __webpack_require__(31), __webpack_require__(32), __webpack_require__(33));
+    mod(__webpack_require__(1), __webpack_require__(32), __webpack_require__(33), __webpack_require__(34));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "../xml/xml", "../javascript/javascript", "../css/css"], mod);
   else // Plain browser env
@@ -22116,7 +22117,7 @@ return jQuery;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -22524,7 +22525,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty("text/html"))
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -23455,7 +23456,7 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -24292,7 +24293,9 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */,
+/* 36 */,
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26873,18 +26876,17 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(8)))
 
 /***/ }),
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */
+/* 38 */,
+/* 39 */,
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(39);
-module.exports = __webpack_require__(48);
+__webpack_require__(41);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -26894,7 +26896,7 @@ module.exports = __webpack_require__(48);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(40);
+__webpack_require__(42);
 
 $(document).ready(function () {
     $('.summernote').summernote({
@@ -26923,11 +26925,11 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(41);
+window._ = __webpack_require__(43);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -26936,14 +26938,14 @@ window._ = __webpack_require__(41);
  */
 
 try {
-  window.Popper = __webpack_require__(34).default;
-  window.$ = window.jQuery = __webpack_require__(29);
+  window.Popper = __webpack_require__(37).default;
+  window.$ = window.jQuery = __webpack_require__(30);
 
-  __webpack_require__(43);
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"codemirror-formatting\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-  __webpack_require__(1);
-  __webpack_require__(44);
+  __webpack_require__(45);
   __webpack_require__(46);
+  __webpack_require__(1);
+  __webpack_require__(47);
+  __webpack_require__(49);
 } catch (e) {}
 
 /**
@@ -26988,7 +26990,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -44100,10 +44102,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(42)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(44)(module)))
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -44131,7 +44133,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -44140,7 +44142,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(34), __webpack_require__(29)) :
+   true ? factory(exports, __webpack_require__(37), __webpack_require__(30)) :
   typeof define === 'function' && define.amd ? define(['exports', 'popper.js', 'jquery'], factory) :
   (factory((global.bootstrap = {}),global.Popper,global.jQuery));
 }(this, (function (exports,Popper,$) { 'use strict';
@@ -48386,7 +48388,134 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 44 */
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function(mod) {
+  if (true) // CommonJS
+    mod(__webpack_require__(1));
+  else if (typeof define == "function" && define.amd) // AMD
+    define(["codemirror/lib/codemirror"], mod);
+  else // Plain browser env
+    mod(CodeMirror);
+})(function(CodeMirror) {
+
+  CodeMirror.extendMode("css", {
+    commentStart: "/*",
+    commentEnd: "*/",
+    newlineAfterToken: function(_type, content) {
+      return /^[;{}]$/.test(content);
+    }
+  });
+
+  CodeMirror.extendMode("javascript", {
+    commentStart: "/*",
+    commentEnd: "*/",
+    // FIXME semicolons inside of for
+    newlineAfterToken: function(_type, content, textAfter, state) {
+      if (this.jsonMode) {
+        return /^[\[,{]$/.test(content) || /^}/.test(textAfter);
+      } else {
+        if (content == ";" && state.lexical && state.lexical.type == ")") return false;
+        return /^[;{}]$/.test(content) && !/^;/.test(textAfter);
+      }
+    }
+  });
+
+  var inlineElements = /^(a|abbr|acronym|area|base|bdo|big|br|button|caption|cite|code|col|colgroup|dd|del|dfn|em|frame|hr|iframe|img|input|ins|kbd|label|legend|link|map|object|optgroup|option|param|q|samp|script|select|small|span|strong|sub|sup|textarea|tt|var)$/;
+
+  CodeMirror.extendMode("xml", {
+    commentStart: "<!--",
+    commentEnd: "-->",
+    newlineAfterToken: function(type, content, textAfter, state) {
+      var inline = false;
+      if (this.configuration == "html")
+        inline = state.context ? inlineElements.test(state.context.tagName) : false;
+      return !inline && ((type == "tag" && />$/.test(content) && state.context) ||
+                         /^</.test(textAfter));
+    }
+  });
+
+  // Comment/uncomment the specified range
+  CodeMirror.defineExtension("commentRange", function (isComment, from, to) {
+    var cm = this, curMode = CodeMirror.innerMode(cm.getMode(), cm.getTokenAt(from).state).mode;
+    cm.operation(function() {
+      if (isComment) { // Comment range
+        cm.replaceRange(curMode.commentEnd, to);
+        cm.replaceRange(curMode.commentStart, from);
+        if (from.line == to.line && from.ch == to.ch) // An empty comment inserted - put cursor inside
+          cm.setCursor(from.line, from.ch + curMode.commentStart.length);
+      } else { // Uncomment range
+        var selText = cm.getRange(from, to);
+        var startIndex = selText.indexOf(curMode.commentStart);
+        var endIndex = selText.lastIndexOf(curMode.commentEnd);
+        if (startIndex > -1 && endIndex > -1 && endIndex > startIndex) {
+          // Take string till comment start
+          selText = selText.substr(0, startIndex) +
+          // From comment start till comment end
+             selText.substring(startIndex + curMode.commentStart.length, endIndex) +
+          // From comment end till string end
+             selText.substr(endIndex + curMode.commentEnd.length);
+        }
+        cm.replaceRange(selText, from, to);
+      }
+    });
+  });
+
+  // Applies automatic mode-aware indentation to the specified range
+  CodeMirror.defineExtension("autoIndentRange", function (from, to) {
+    var cmInstance = this;
+    this.operation(function () {
+      for (var i = from.line; i <= to.line; i++) {
+        cmInstance.indentLine(i, "smart");
+      }
+    });
+  });
+
+  // Applies automatic formatting to the specified range
+  CodeMirror.defineExtension("autoFormatRange", function (from, to) {
+    var cm = this;
+    var outer = cm.getMode(), text = cm.getRange(from, to).split("\n");
+    var state = CodeMirror.copyState(outer, cm.getTokenAt(from).state);
+    var tabSize = cm.getOption("tabSize");
+
+    var out = "", lines = 0, atSol = from.ch === 0;
+    function newline() {
+      out += "\n";
+      atSol = true;
+      ++lines;
+    }
+
+    for (var i = 0; i < text.length; ++i) {
+      var stream = new CodeMirror.StringStream(text[i], tabSize);
+      while (!stream.eol()) {
+        var inner = CodeMirror.innerMode(outer, state);
+        var style = outer.token(stream, state), cur = stream.current();
+        stream.start = stream.pos;
+        if (!atSol || /\S/.test(cur)) {
+          out += cur;
+          atSol = false;
+        }
+        if (!atSol && inner.mode.newlineAfterToken &&
+            inner.mode.newlineAfterToken(style, cur, stream.string.slice(stream.pos) || text[i+1] || "", inner.state))
+          newline();
+      }
+      if (!stream.pos && outer.blankLine) outer.blankLine(state);
+      if (!atSol && i < text.length - 1) newline();
+    }
+
+    cm.operation(function () {
+      cm.replaceRange(out, from, to);
+      for (var cur = from.line + 1, end = from.line + lines; cur <= end; ++cur)
+        cm.indentLine(cur, "smart");
+      cm.setSelection(from, cm.getCursor(false));
+    });
+  });
+});
+
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -48394,8 +48523,8 @@ module.exports = function(module) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(1), __webpack_require__(30),
-        __webpack_require__(45));
+    mod(__webpack_require__(1), __webpack_require__(31),
+        __webpack_require__(48));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "../htmlmixed/htmlmixed",
             "../../addon/mode/multiplex"], mod);
@@ -48429,7 +48558,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -48566,7 +48695,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -48579,7 +48708,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
  * Date: 2018-11-24T12:13Z
  */
 (function (global, factory) {
-   true ? factory(__webpack_require__(29)) :
+   true ? factory(__webpack_require__(30)) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
   (factory(global.jQuery));
 }(this, (function ($$1) { 'use strict';
@@ -49192,7 +49321,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
       unique: unique
   };
 
-  var isSupportAmd = "function" === 'function' && __webpack_require__(47); // eslint-disable-line
+  var isSupportAmd = "function" === 'function' && __webpack_require__(50); // eslint-disable-line
   /**
    * returns whether font is installed or not.
    *
@@ -56146,7 +56275,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -56155,7 +56284,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

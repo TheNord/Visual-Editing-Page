@@ -29,13 +29,11 @@ class TemplateController extends Controller
     }
 
     public function load(Request $request) {
-    	$path = $this->getPath($request->template);
-    	return Storage::disk('template_manage')->download($path);
+    	return Storage::disk('template_manage')->download($request->input('path'));
     }
 
     public function update(Request $request) {
-    	$path = $this->getPath($request->template);
-    	$result = Storage::disk('template_manage')->put($path, $request->code);
+    	$result = Storage::disk('template_manage')->put($request->input('path'), $request->input('code'));
     	return response(['result' => $result], 200);
     }
 
