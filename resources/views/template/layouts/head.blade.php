@@ -19,5 +19,4 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @if (auth()->check() && auth()->user()->isAdmin() && !Request::is('admin*'))
     <link href="{{ asset('css/admin-bar.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/content-tools.min.css') }}">
 @endif

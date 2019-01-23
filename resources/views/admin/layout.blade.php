@@ -6,7 +6,10 @@
     <title>AdminLTE 2 | Blank Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/css/admin.css">
+
+    <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
+
+    @yield('styles')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -427,9 +430,7 @@
 <script src="{{ asset('/js/admin-vue.js') }}"></script>
 <script src="{{ asset('/js/scripts.js') }}"></script>
 
-<!-- include summernote css/js -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+@yield('scripts')
 
 </body>
 </html>

@@ -14930,14 +14930,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var files = __webpack_require__(61);
 files.keys().map(function (key) {
-    return Vue.component(key.split('/').pop().split('.')[0], files(key));
+  return Vue.component(key.split('/').pop().split('.')[0], files(key));
 });
 
 window.EventBus = new Vue();
-
-var app = new Vue({
-    el: '#app'
-});
 
 /***/ }),
 /* 58 */
@@ -26328,7 +26324,7 @@ var content = __webpack_require__(63);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(35)("1b1242f8", content, false, {});
+var update = __webpack_require__(35)("3db5b452", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -26499,7 +26495,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(35)("0fdc178a", content, false, {});
+var update = __webpack_require__(35)("f9dfeff0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -26873,7 +26869,7 @@ var content = __webpack_require__(73);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(35)("64eb098e", content, false, {});
+var update = __webpack_require__(35)("a7a760ca", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -26897,7 +26893,7 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, "\n.CodeMirror {\r\n    height: 400px;\n}\r\n", ""]);
+exports.push([module.i, "\n.CodeMirror {\n    height: 400px;\n}\n", ""]);
 
 // exports
 

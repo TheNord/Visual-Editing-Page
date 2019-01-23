@@ -17,16 +17,6 @@
 
 @if (auth() -> check() && auth()->user()->isAdmin() && !Request::is('admin*'))
     @include('admin.partials.bar')
-
-    @if (Session::get('interactive-editing'))
-        <script src="{{ asset('assets/content-tools.min.js') }}"></script>
-        <script src="{{ asset('assets/editor.js') }}"></script>
-
-        <script>
-            window.page = {{$page->id}};
-            window.token = "{{csrf_token()}}";
-        </script>
-    @endif
 @endif
 </body>
 </html>

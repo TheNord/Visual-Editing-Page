@@ -5,8 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Редактирование страницы
-                <small>приятные слова..</small>
+                Управление страницами
             </h1>
         </section>
 
@@ -89,3 +88,5 @@
         <!-- /.content -->
     </div>
 @endsection
+
+@include('admin.partials.summernote')

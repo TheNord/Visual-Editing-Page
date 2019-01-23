@@ -35,11 +35,6 @@ Route::group(
         // Admin >> Widgets
         Route::resource('/widgets', 'WidgetsController');
 
-        // Page editing
-        Route::get('/interactive/start', 'PageEditorController@start')->name('start.editing');
-        Route::get('/interactive/stop', 'PageEditorController@stop')->name('stop.editing');
-        Route::post('/interactive/{page}/save', 'PageEditorController@save');
-
         // Admin >> TemplateManager
         Route::get('/template-manager', 'TemplateController@index')->name('template-manager.index');
         Route::post('/template-manager/update', 'TemplateController@update');
