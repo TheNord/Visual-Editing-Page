@@ -69,7 +69,21 @@
                                    value="{{ old('keywords') }}">
                         </div>
 
-                        <!-- /.box-body -->
+                        <h3 class="meta-block">Дополнительные опции</h3>
+
+                        <div class="form-group">
+                            <label for="template" class="col-form-label">Шаблон страницы</label>
+                            <select id="template" class="form-control"
+                                    name="template">
+                                <option value="">Стандартный шаблон</option>
+                                @foreach ($templates as $template)
+                                    <option value="{{ $template->get('path') }}">
+                                        {{ $template->get('name') }}
+                                    </option>
+                                @endforeach;
+                            </select>
+                        </div>
+
                         <div class="box-footer">
                             <a class="btn btn-default" href="{{ route('admin.pages.index') }}">Назад</a>
                             <button class="btn btn-success pull-right">Добавить</button>

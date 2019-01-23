@@ -6,24 +6,39 @@ use App\Entity\Page;
 use App\Entity\Project\Settings;
 use App\Http\Middleware\ProcessWidgets;
 use App\Http\Router\PagePath;
+use App\Http\UseCases\FileManager;
 
 class PageController extends Controller
 {
-    public function __construct()
+    private $fileManager;
+
+    public function __construct(FileManager $fileManager)
     {
         $this->middleware(ProcessWidgets::class);
+        $this->fileManager = $fileManager;
     }
+
     public function show(PagePath $path)
     {
         $page = $path->page;
-        return view('template.page', compact('page'));
+        $template = $this->getTemplate($page);
+
+        return view($template, compact('page'));
     }
 
     public function showHome()
     {
-        // need cache
         $pageId = Settings::where('name', 'home_page')->first();
         $page = Page::find($pageId->value);
-        return view('template.page', compact('page'));
+        $template = $this->getTemplate($page);
+
+        return view($template, compact('page'));
+    }
+
+    private function getTemplate($page)
+    {
+        return $this->fileManager->checkExist($page->template) ?
+               'template.' . rtrim($page->template, '.blade.php') :
+               'template.page';
     }
 }

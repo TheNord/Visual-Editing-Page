@@ -36,23 +36,4 @@ class TemplateController extends Controller
     	$result = Storage::disk('template_manage')->put($request->input('path'), $request->input('code'));
     	return response(['result' => $result], 200);
     }
-
-    private function getPath($template) {
-    	switch ($template) {
-		    case 'header':
-		        $path = '/layouts/partials/header.blade.php';
-		        break;
-		    case 'footer':
-		        $path = '/layouts/partials/footer.blade.php';
-		        break;
-		    case 'top_menu':
-		        $path = '/layouts/partials/top_menu.blade.php';
-		        break;    
-		    case 'page':
-		        $path = '/page.blade.php';
-		        break;
-		}
-
-		return $path;
-    }
 }

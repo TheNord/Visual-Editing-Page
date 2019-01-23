@@ -2,6 +2,7 @@
 
 namespace App\Http\UseCases;
 
+use Cache;
 use Storage;
 use Illuminate\Support\Collection;
 
@@ -25,6 +26,49 @@ class FileManager
         $files = $this->filterFile($content);
 
         return compact('directories', 'files');
+    }
+
+    /**
+     * Get page templates
+     *
+     * @return array
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function getPageTemplates()
+    {
+        $templates = [];
+
+        $content = $this->content('/');
+
+        foreach ($content['files'] as $file) {
+            if (preg_match('|#Template Name:(.*)#|mi', $this->getFileContent($file['path']), $header)) {
+                $templates[] = collect([
+                    'path' => $file['path'],
+                    'name' => trim($header[1])
+                ]);
+            }
+        }
+
+        return $templates;
+    }
+
+    public function checkExist($path)
+    {
+        return Storage::disk($this->disk)->exists($path);
+    }
+
+    /**
+     * Get the content of a file by path
+     *
+     * @param $path
+     * @return string
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function getFileContent($path)
+    {
+        return Storage::disk('template_manage')->get($path);
     }
 
     /**

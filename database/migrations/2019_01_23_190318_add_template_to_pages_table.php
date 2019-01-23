@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddKeywordsInPagesTable extends Migration
+class AddTemplateToPagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddKeywordsInPagesTable extends Migration
     public function up()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->text('keywords')->nullable()->after('description');
+            $table->string('template')->after('keywords')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddKeywordsInPagesTable extends Migration
     public function down()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->dropColumn('keywords');
+            $table->dropColumn('template');
         });
     }
 }
