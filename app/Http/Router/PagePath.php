@@ -3,6 +3,7 @@
 namespace App\Http\Router;
 
 use App\Entity\Page;
+use App\Entity\Post\Category;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;

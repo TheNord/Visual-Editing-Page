@@ -25,15 +25,13 @@ class PageController extends Controller
     }
 
     /**
-     * Create new page
-     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function create()
     {
         $parents = Page::defaultOrder()->withDepth()->get();
-        $templates = $this->fileManager->getPageTemplate();
+        $templates = $this->fileManager->getPageTemplates();
 
         return view('admin.pages.create', compact('parents', 'templates'));
     }

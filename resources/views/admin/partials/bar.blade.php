@@ -5,7 +5,7 @@
             <li>
                 <a href="{{route('admin.home')}}"><i class="fas fa-home"></i></a>
             </li>
-            @if ($page)
+            @if (isset($page))
                 <li>
                     <a href="{{route('admin.pages.edit', $page)}}"><i class="fas fa-pencil-alt ab-icon"></i>Редактирование страницы</a>
                 </li>
