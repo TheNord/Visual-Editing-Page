@@ -31,8 +31,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="page" class="col-form-label">Page</label>
+                            <label for="page" class="col-form-label">Страница</label>
                             <select id="page" class="form-control" name="page_id">
+                                <option value=""></option>
                                 @foreach ($pages as $page)
                                     <option value="{{ $page->id }}"{{ $page->id == old('parent', $menu->page_id) ? ' selected' : '' }}>
                                         @for ($i = 0; $i < $page->depth; $i++) &mdash; @endfor
@@ -42,9 +43,20 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="category" class="col-form-label">Категория</label>
+                            <select id="category" class="form-control" name="category_id">
+                                <option value=""></option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"{{ $category->id == old('category_id', $menu->category_id) ? ' selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach;
+                            </select>
+                        </div>
 
                         <div class="form-group">
-                            <label for="parent" class="col-form-label">Parent</label>
+                            <label for="parent" class="col-form-label">Родительское меню</label>
                             <select id="parent" class="form-control" name="parent">
                                 <option value=""></option>
                                 @foreach ($parents as $parent)
@@ -58,7 +70,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <a href="{{ route('admin.menu.index') }}" class="btn btn-default">Назад</a>
-                            <button class="btn btn-success pull-right">Добавить</button>
+                            <button class="btn btn-success pull-right">Изменить</button>
                         </div>
                     </div>
                 </div>

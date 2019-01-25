@@ -38,7 +38,6 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'tags' => 'required',
             'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))]
         ]);
 
@@ -88,7 +87,6 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'tags' => 'required',
             'miniature' => 'nullable|image',
             'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))]
         ]);

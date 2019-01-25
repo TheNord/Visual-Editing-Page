@@ -83,16 +83,15 @@ Route::group(
 $path = explode('/', Request::path());
 $firstPath = reset($path);
 
-if (\App\Entity\Post\Category::where('slug', $firstPath)->first()) {
-    Route::get('/{category}', 'PostController@category')->name('category');
-    // Find category and post the current category
-    Route::get('/{category}/{post}/', 'PostController@show')->name('category.post.show');
+if (\App\Entity\Post\Category::where('slug', $firstPath)->first()) {  
+        Route::get('/{category}', 'PostController@category')->name('category.index');
+        // Find category and post the current category
+        Route::get('/{category}/{post}/', 'PostController@show')->name('category.post.show');
 }
 
 Route::get('/{page_path}', 'PageController@show')->name('page')->where('page_path', '.+');
 
-
-
+Route::get('/{category}', 'PostController@category')->name('category.index');
 
 
 

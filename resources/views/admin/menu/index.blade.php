@@ -41,7 +41,11 @@
                                     {{ $menu->title }}
                                 </td>
                                 <td>
+                                    @if($menu->type == 0)
                                     <a href="{{ route('page', page_path($menu->page)) }}"> {{ $menu->page->title }}</a>
+                                    @else
+                                    <a href="{{ route('category.index', $menu->category) }}"> {{ $menu->category->name }}</a>
+                                    @endif
                                 </td>
                                 <td>
                                     <div class="d-flex flex-row">

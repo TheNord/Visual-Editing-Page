@@ -57,6 +57,11 @@ class Post extends Model
         return !!$this->miniature;
     }
 
+    public function hasTags()
+    {
+        return $this->tags()->count() > 0;
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
