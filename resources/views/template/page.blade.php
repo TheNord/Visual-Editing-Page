@@ -1,17 +1,6 @@
 @extends('template.layouts.app')
 
-@section('title')
-    {{ $page->title }}
-@endsection
-
-@section('meta')
-    @if ($page->hasDescription())
-        <meta name="description" content="{{ $page->description }}">
-    @endif
-    @if ($page->hasKeywords())
-        <meta name="keywords" content="{{ $page->keywords }}">
-    @endif
-@endsection
+@include('template.layouts.meta', ['data' => $page])
 
 @section('content')
     <h1 class="mb-3">{{ $page->title }}</h1>

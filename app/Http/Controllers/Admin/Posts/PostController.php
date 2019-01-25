@@ -38,7 +38,9 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'required',
-            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))]
+            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))],
+            'description' => 'nullable|string',
+            'keywords' => 'nullable|string',
         ]);
 
         $post = Post::create([
@@ -47,6 +49,8 @@ class PostController extends Controller
             'content' => $request['content'],
             'status' => $request['status'],
             'category_id' => $request['category'],
+            'description' => $request['description'],
+            'keywords' => $request['keywords'],
         ]);
 
         if ($request->file('miniature') != null) {
@@ -88,7 +92,9 @@ class PostController extends Controller
             'content' => 'required',
             'category' => 'required',
             'miniature' => 'nullable|image',
-            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))]
+            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))],
+            'description' => 'nullable|string',
+            'keywords' => 'nullable|string',
         ]);
 
         $post->update([
@@ -97,6 +103,8 @@ class PostController extends Controller
             'content' => $request['content'],
             'status' => $request['status'],
             'category_id' => $request['category'],
+            'description' => $request['description'],
+            'keywords' => $request['keywords'],
         ]);
 
         if ($request->file('miniature') != null) {

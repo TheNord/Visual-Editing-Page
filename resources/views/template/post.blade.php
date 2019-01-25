@@ -1,8 +1,6 @@
 @extends('template.layouts.app')
 
-@section('title')
-    {{ $post->title }}
-@endsection
+@include('template.layouts.meta', ['data' => $post])
 
 @section('content')
     <h1 class="mb-3">{{ $post->title }}</h1>

@@ -38,6 +38,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Мета информация</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">Описание</label>
+                            <textarea id="description" class="form-control" name="description"
+                                      rows="3">{{ old('description', $post->description) }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="keywords" class="col-form-label">Ключевые слова</label>
+                            <input type="text" name="keywords" class="form-control" id="keywords" placeholder=""
+                                   value="{{ old('keywords', $post->description) }}">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-4">

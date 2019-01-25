@@ -19,7 +19,17 @@ class Post extends Model
             self::TYPE_DRAFT => 'Черновик',
             self::TYPE_PUBLISHED => 'Опубликован',
         ];
-    }   
+    }
+
+    public function hasDescription()
+    {
+        return !!$this->description;
+    }
+
+    public function hasKeywords()
+    {
+        return !!$this->keywords;
+    }
 
     public function tags()
     {
