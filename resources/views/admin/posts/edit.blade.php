@@ -14,7 +14,8 @@
             <!-- Default box -->
            {{ Form::open([
                         'route' =>  ['admin.posts.update', $post->slug],
-                        'method' => 'put']
+                        'method' => 'put',
+                        'files' => true]
                         ) }}
             <div class="col-md-8">
                 <div class="box">
@@ -65,9 +66,9 @@
                 
                         <div class="form-group">
                         <label>Метки</label>
-                        <select name="tags[]" class="form-control select2" multiple="multiple" data-placeholder="Выберите метки" style="width: 100%;">
+                        <select name="tags[]" class="form-control select2" multiple="multiple" data-placeholder="Выберите метки">
                             @foreach ($tags as $tag)
-                                <option value="{{ $tag->id }}"{{ $tag->id == old('tag', $post->tags->pluck('id')->keys()) ? ' selected' : '' }}>
+                                <option value="{{ $tag->id }}"{{ $tag->id == old('tag', !is_null($post->tags->where('id', $tag->id)->first())) ? ' selected' : '' }}>
                                     {{ $tag->name }}
                                 </option>
                             @endforeach
@@ -80,6 +81,26 @@
                         <button type="submit" class="btn btn-primary pull-right">Изменить</button>
                     </div>
                 </div> 
+
+                 <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Миниатюра записи</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            @if($post->hasMiniature())
+                            <img src="{{ asset($post->miniature) }}" class="img-responsive center-block" style="max-height:250px;">
+
+                            <label for="miniature" class="col-form-label">Изменить миниатюру</label>
+                            <input type="file" id="miniature" name="miniature">
+                            @else
+                            <label for="miniature" class="col-form-label">Задать миниатюру</label>
+                            <input type="file" id="miniature" name="miniature">
+                            @endif
+                        </div>
+                    </div>  
+                </div>
+                
             </div>
             {{ Form::close() }}
                 <!-- /.box-footer-->

@@ -50,6 +50,11 @@ class PostController extends Controller
             'category_id' => $request['category'],
         ]);
 
+        if ($request->file('miniature') != null) {
+            $post->miniature = $request->file('miniature')->store('uploads/miniature');
+            $post->save();
+        }
+
         $post->setTags($request->tags);
 
         return redirect()->route('admin.posts.index');
@@ -84,6 +89,7 @@ class PostController extends Controller
             'content' => 'required',
             'category' => 'required',
             'tags' => 'required',
+            'miniature' => 'nullable|image',
             'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))]
         ]);
 
@@ -94,6 +100,10 @@ class PostController extends Controller
             'status' => $request['status'],
             'category_id' => $request['category'],
         ]);
+
+        if ($request->file('miniature') != null) {
+            $post->update([$request->file('miniature')->store('uploads/miniature')]);
+        }
 
         $post->setTags($request->tags);
 

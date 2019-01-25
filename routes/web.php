@@ -76,17 +76,22 @@ Route::group(
         });
     });
 
-
-Route::get('/{category}/{post}/', 'PostController@show')->name('category.post.show');
-
+/**
+* Сheck for the existence of a category
+* If category not found check existence of a page
+*/
 $path = explode('/', Request::path());
 $firstPath = reset($path);
 
 if (\App\Entity\Post\Category::where('slug', $firstPath)->first()) {
     Route::get('/{category}', 'PostController@category')->name('category');
+    // Find category and post the current category
+    Route::get('/{category}/{post}/', 'PostController@show')->name('category.post.show');
 }
 
 Route::get('/{page_path}', 'PageController@show')->name('page')->where('page_path', '.+');
+
+
 
 
 

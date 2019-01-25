@@ -19,9 +19,17 @@
 
     @if ($category->hasPosts())
         @foreach($category->posts as $post)
-            {{ $post->title }}
-            {!! $post->content !!}
+            <h2>{{ $post->title }}</h2>
+            <hr />
+
+            @if($post->hasMiniature())
+                <img src="{{ asset($post->miniature) }}" class="img-responsive " style="max-height:200px; float:left; padding-right: 15px">
+            @endif                
+            {{ $post->shortlyContent() }}
+
+            <br /><br />
             <a href="{{ route('category.post.show', [$category, $post]) }}">Подробнее</a>
+            <div class="clearfix"></div>
         @endforeach
     @else
         <p>В данной категории нет постов</p>

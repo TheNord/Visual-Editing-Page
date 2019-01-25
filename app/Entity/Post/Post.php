@@ -42,6 +42,21 @@ class Post extends Model
         $this->tags()->sync($ids);
     }
 
+    public function shortlyContent()
+    {
+        $content = $this->content;
+        $content = strip_tags($content);
+        $content = substr($content, 0, 400);
+        $content = rtrim($content, "!,.-");
+        $content = substr($content, 0, strrpos($content, ' '));
+        return $content."… ";
+    }
+
+    public function hasMiniature() 
+    {
+        return !!$this->miniature;
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';

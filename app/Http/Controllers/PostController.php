@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public static function show(Category $category, Post $post)
     {
-        dd($post);
+    	return view('template.post', compact('category', 'post'));
     }
 
     public static function category(Category $category)

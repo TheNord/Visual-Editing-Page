@@ -12,7 +12,7 @@
         <!-- Main content -->
         <section class="content">
             <!-- Default box -->
-            {{ Form::open(['route' => 'admin.posts.store']) }}
+            {{ Form::open(['route' => 'admin.posts.store', 'files' => true]) }}
             <div class="col-md-8">
                 <div class="box">
                     <div class="box-header with-border">
@@ -77,6 +77,19 @@
                         <button type="submit" class="btn btn-primary pull-right">Опубликовать</button>
                     </div>
                 </div> 
+
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Миниатюра записи</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">     
+                            <label for="miniature" class="col-form-label">Задать миниатюру</label>
+                            <input type="file" id="miniature" name="miniature">
+                        </div>
+                    </div>  
+                </div>
+
             </div>
             {{ Form::close() }}
                 <!-- /.box-footer-->
