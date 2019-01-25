@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'PageController@showHome');
+Route::get('/', 'PageController@showHome')->name('home');
 
 Route::group(
     [

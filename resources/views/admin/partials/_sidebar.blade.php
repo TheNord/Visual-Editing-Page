@@ -1,9 +1,8 @@
 <ul class="sidebar-menu">
     <li class="header">MAIN NAVIGATION</li>
-    <li class="treeview">
-        <a href="{{ route('admin.home') }}">
-            <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
-        </a>
+    <li>
+        <a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> 
+        <span>Админ-панель</span></a>
     </li>
     <li class="treeview menu-open">
         <a href="#">
