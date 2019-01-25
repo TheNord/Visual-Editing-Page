@@ -16,7 +16,7 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('page_id')->unsigned();
+            $table->integer('page_id')->unsigned()->nullable();
             $table->text('title');
             $table->timestamps();
             NestedSet::columns($table);

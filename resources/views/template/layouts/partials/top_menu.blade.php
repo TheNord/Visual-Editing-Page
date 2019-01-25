@@ -13,24 +13,39 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @foreach ($topMenuPages as $menu)
-
+                    
                     @if ($menu->hasChildren())
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ $menu->page->title }}<span class="caret"></span>
+                                {{-- Если меню относится к странице --}}
+                                @if($menu->type == 0)
+                                {{ $menu->title }}<span class="caret"></span>
+                                @else
+                                {{-- Если меню относится к категории --}}
+                                {{ $menu->name }}<span class="caret"></span>
+                                @endif
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($moreMenu = $menu->children()->get() as $menu)
+                                    @if($menu->type == 0)
                                     <a class="dropdown-item"
                                        href="{{ route('page', page_path($menu->page)) }}">{{ $menu->title }}</a>
+                                    @else
+                                    <a class="dropdown-item"
+                                       href="{{ route('category.index', $menu->category) }}">{{ $menu->title }}</a>
+                                    @endif   
                                 @endforeach
                             </div>
                         </li>
                     @endif
 
                     @if ($menu->isRoot())
-                        <li><a class="nav-link" href="{{ route('page', page_path($menu->page)) }}">{{ $menu->page->title }}</a></li>
+                        @if($menu->type == 0)
+                        <li><a class="nav-link" href="{{ route('page', page_path($menu->page)) }}">{{ $menu->title }}</a></li>
+                        @else
+                        <li><a class="nav-link" href="{{ route('category.index', $menu->category) }}">{{ $menu->title }}</a></li>
+                        @endif
                     @endif
 
                 @endforeach

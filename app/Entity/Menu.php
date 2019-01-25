@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\NodeTrait;
+use App\Entity\Post\Category;
 
 class Menu extends Model
 {
@@ -19,5 +20,10 @@ class Menu extends Model
     public function page()
     {
         return $this->belongsTo(Page::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

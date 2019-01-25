@@ -3,11 +3,21 @@
 
         <ul>
             <li>
-                <a href="{{route('admin.home')}}"><i class="fas fa-home"></i></a>
+                <a href="{{route('admin.home')}}"><i class="fas fa-home ab-icon"></i>Администрационная панель</a>
             </li>
-            @if ($page)
+            @if (isset($page))
                 <li>
-                    <a href="{{route('admin.pages.edit', $page)}}"><i class="fas fa-pencil-alt ab-icon"></i>Редактирование страницы</a>
+                    <a href="{{route('admin.pages.edit', $page)}}"><i class="fas fa-pencil-alt ab-icon ab-icon"></i>Редактирование страницы</a>
+                </li>
+            @endif
+            @if (isset($category))
+                <li>
+                    <a href="{{route('admin.posts.categories.edit', $category)}}"><i class="fas fa-pencil-alt ab-icon ab-icon"></i>Редактирование категории</a>
+                </li>
+            @endif
+            @if (isset($post))
+                <li>
+                    <a href="{{route('admin.posts.edit', $post)}}"><i class="fa fa-edit ab-icon"></i>Редактирование записи</a>
                 </li>
             @endif
         </ul>

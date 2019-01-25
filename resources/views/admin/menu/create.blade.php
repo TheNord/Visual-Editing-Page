@@ -27,9 +27,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="page" class="col-form-label">Page</label>
-                            <select id="page" class="form-control"
-                                    name="page_id">
+                            <label for="page" class="col-form-label">Страница</label>
+                            <select id="page" class="form-control" name="page_id">
+                                <option value=""></option>
                                 @foreach ($pages as $page)
                                     <option value="{{ $page->id }}"{{ $page->id == old('page_id') ? ' selected' : '' }}>
                                         @for ($i = 0; $i < $page->depth; $i++) &mdash; @endfor
@@ -40,7 +40,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parent" class="col-form-label">Parent</label>
+                            <label for="category" class="col-form-label">Категория</label>
+                            <select id="category" class="form-control" name="category_id">
+                                <option value=""></option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"{{ $page->id == old('category_id') ? ' selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach;
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="parent" class="col-form-label">Родительское меню</label>
                             <select id="parent" class="form-control"
                                     name="parent">
                                 <option value=""></option>

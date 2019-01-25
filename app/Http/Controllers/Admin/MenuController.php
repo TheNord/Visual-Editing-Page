@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entity\Menu;
 use App\Entity\Page;
+use App\Entity\Post\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -19,48 +20,71 @@ class MenuController extends Controller
     {
         $parents = Menu::defaultOrder()->withDepth()->get();
         $pages = Page::all();
+        $categories = Category::all();
 
-        return view('admin.menu.create', compact('parents', 'pages'));
+        return view('admin.menu.create', compact('parents', 'pages', 'categories'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'page_id' => 'required|integer|exists:pages,id',
+            'page_id' => 'nullable|integer|exists:pages,id',
+            'category_id' => 'nullable|integer|exists:posts_categories,id',
             'parent_id' => 'nullable|integer|exists:menu,id'
         ]);
 
-        $page = Menu::create([
+        $menu = Menu::create([
             'title' => $request['title'],
             'page_id' => $request['page_id'],
+            'category_id' => $request['category_id'],
             'parent_id' => $request['parent']
         ]);
 
-        return redirect()->route('admin.menu.index', $page);
+        // if the category is selected assign type menu 1 (category)
+        if ($request['category_id'] != null) {
+            $menu->update([
+                'page_id' => null,
+                'type' => 1
+            ]);
+        }
+
+        return redirect()->route('admin.menu.index', $menu);
     }
 
     public function edit(Menu $menu)
     {
         $parents = Menu::defaultOrder()->withDepth()->get();
         $pages = Page::all();
+        $categories = Category::all();
 
-        return view('admin.menu.edit', compact('menu', 'parents', 'pages'));
+        return view('admin.menu.edit', compact('menu', 'parents', 'pages', 'categories'));
     }
 
     public function update(Request $request, Menu $menu)
     {
         $request->validate([
             'title' => 'required',
-            'page_id' => 'required|integer|exists:pages,id',
-            'parent_id' => 'nullable|integer|exists:menu,id'
+            'page_id' => 'nullable|integer|exists:pages,id',
+            'category_id' => 'nullable|integer|exists:posts_categories,id',
+            'parent_id' => 'nullable|integer',
         ]);
 
         $menu->update([
             'title' => $request['title'],
             'page_id' => $request['page_id'],
-            'parent_id' => $request['parent']
+            'category_id' => $request['category_id'],
+            'parent_id' => $request['parent'],
+            'type' => 0
         ]);
+
+        // if the category is selected assign type menu 1 (category)
+        if ($request['category_id'] != null) {
+            $menu->update([
+                'page_id' => null,
+                'type' => 1
+            ]);
+        }
 
         return redirect()->route('admin.menu.index', $menu);
     }

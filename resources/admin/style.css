@@ -27,3 +27,14 @@
     padding: 10px 0 5px 0;
     font-size: 18px;
 }
+
+.sidebar_home {
+    top: 15px;
+    left: 15px;
+    position: relative;
+    color: #fff;
+}
+
+.sidebar_home:hover {
+    color: #ddf2ff;
+}
