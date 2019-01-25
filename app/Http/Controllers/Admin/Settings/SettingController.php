@@ -14,6 +14,9 @@ class SettingController extends Controller
         return view('admin.settings.index', ['settings' => $settings]);
     }
 
+    /**
+     * Home page setting
+     */
     public function changeHome()
     {
         $current = Settings::where('name', 'home_page')->first();
@@ -33,6 +36,31 @@ class SettingController extends Controller
 
         $homePage->update([
             'value' => $request->page
+        ]);
+
+        return redirect()->route('admin.settings.index');
+    }
+
+    /**
+     * Registration access setting
+     */
+    public function registration()
+    {
+        $current = Settings::where('name', 'registration_access')->first()->value;
+
+        return view('admin.settings.registration.change', compact('current'));
+    }
+
+    public function updateRegistration(Request $request, Settings $settings)
+    {
+        $request->validate([
+            'status' => 'required'
+        ]);
+
+        $registrationStatus = Settings::where('name', 'registration_access')->first();
+
+        $registrationStatus->update([
+            'value' => $request->status
         ]);
 
         return redirect()->route('admin.settings.index');

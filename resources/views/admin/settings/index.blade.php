@@ -24,16 +24,22 @@
                     <table id="main-table" class="table table-bordered table-striped offsort">
                         <thead>
                         <tr>
-                            <th>Property name</th>
-                            <th>Value</th>
-                            <th>Actions</th>
+                            <th>Наименование</th>
+                            <th>Значение</th>
+                            <th>Действия</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Home page</td>
+                                <td>Домашняя страница</td>
                                 <td>{{$settings->getHome()->title}}</td>
                                 <td><a href="{{ route('admin.settings.homePage') }}" class="fa fa-pencil fl"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Регистрация</td>
+                                <td>{{$settings->getRegistrationStatus() ? 'Регистрация доступна' : 'Регистрация запрещена'}}</td>
+                                <td><a href="{{ route('admin.settings.registration') }}" class="fa fa-pencil fl"></a>
                                 </td>
                             </tr>
                         </tbody>

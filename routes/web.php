@@ -31,6 +31,8 @@ Route::group(
         Route::get('/settings', 'Settings\SettingController@index')->name('settings.index');
         Route::get('/settings/homepage', 'Settings\SettingController@changeHome')->name('settings.homePage');
         Route::put('/settings/homepage', 'Settings\SettingController@updateHome')->name('settings.updateHomePage');
+        Route::get('/settings/registration', 'Settings\SettingController@registration')->name('settings.registration');
+        Route::put('/settings/registration', 'Settings\SettingController@updateRegistration')->name('settings.updateRegistration');
 
         // Admin >> Widgets
         Route::resource('/widgets', 'WidgetsController');

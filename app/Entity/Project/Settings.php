@@ -24,4 +24,9 @@ class Settings extends Model
 
         return $page;
     }
+
+    public function getRegistrationStatus()
+    {
+        return Settings::where('name', 'registration_access')->first()->value;
+    }
 }

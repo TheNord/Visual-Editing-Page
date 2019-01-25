@@ -108,7 +108,8 @@ class PostController extends Controller
         ]);
 
         if ($request->file('miniature') != null) {
-            $post->update([$request->file('miniature')->store('uploads/miniature')]);
+            $post->miniature = $request->file('miniature')->store('uploads/miniature');
+            $post->save();
         }
 
         $post->setTags($request->tags);
