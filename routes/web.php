@@ -7,6 +7,8 @@ Auth::routes();
 
 Route::get('/', 'PageController@showHome')->name('home');
 
+Route::post('/mail', 'MailController@send')->name('mail.send');
+
 Route::group(
     [
         'prefix' => 'admin',
@@ -36,6 +38,8 @@ Route::group(
         Route::put('/settings/homepage', 'Settings\SettingController@updateHome')->name('settings.updateHomePage');
         Route::get('/settings/registration', 'Settings\SettingController@registration')->name('settings.registration');
         Route::put('/settings/registration', 'Settings\SettingController@updateRegistration')->name('settings.updateRegistration');
+        Route::get('/settings/contact', 'Settings\SettingController@contact')->name('settings.contact');
+        Route::put('/settings/contact', 'Settings\SettingController@updateContact')->name('settings.updateContact');
 
         // Admin >> Widgets
         Route::resource('/widgets', 'WidgetsController');

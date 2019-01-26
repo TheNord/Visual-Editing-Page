@@ -16,7 +16,7 @@ class Settings extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->integer('value')->nullable();
+            $table->text('value')->nullable();
         });
 
         DB::table('settings')->insert([

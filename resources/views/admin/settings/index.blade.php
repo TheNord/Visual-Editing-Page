@@ -42,6 +42,12 @@
                                 <td><a href="{{ route('admin.settings.registration') }}" class="fa fa-pencil fl"></a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Email для обратной связи</td>
+                                <td>{{$settings->getEmail()}}</td>
+                                <td><a href="{{ route('admin.settings.contact') }}" class="fa fa-pencil fl"></a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

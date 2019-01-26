@@ -65,4 +65,29 @@ class SettingController extends Controller
 
         return redirect()->route('admin.settings.index');
     }
+
+    /**
+     * Contact email address setting
+     */
+    public function contact()
+    {
+        $current = Settings::where('name', 'email_to')->first()->value;
+
+        return view('admin.settings.contact.change', compact('current'));
+    }
+
+    public function updateContact(Request $request, Settings $settings)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $email = Settings::where('name', 'email_to')->first();
+
+        $email->update([
+            'value' => $request->email
+        ]);
+
+        return redirect()->route('admin.settings.index');
+    }
 }

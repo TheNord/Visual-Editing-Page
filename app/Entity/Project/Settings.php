@@ -29,4 +29,9 @@ class Settings extends Model
     {
         return Settings::where('name', 'registration_access')->first()->value;
     }
+
+    public static function getEmail()
+    {
+        return Settings::where('name', 'email_to')->first()->value;
+    }
 }
