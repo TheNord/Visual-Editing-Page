@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('admin.layout', ['page' => 'users'])
 
 @section('content')
     <div class="content-wrapper">

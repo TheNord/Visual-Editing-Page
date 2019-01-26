@@ -209,19 +209,19 @@
               </span>
                 </div>
             </form>
+
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-        @include('admin.partials._sidebar')
+        @include('admin.partials._sidebar', ['page' => $page])
         </section>
         <!-- /.sidebar -->
     </aside>
 
     <!-- =============================================== -->
 
-    <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
 @yield('content')
 <!-- /.content-wrapper -->
-
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.3.7
