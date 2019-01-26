@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => User::ROLE_USER,
         ]);
     }
 
@@ -84,8 +85,7 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectTo);
+        return redirect($this->redirectTo);
     }
 
     /**

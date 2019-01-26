@@ -14,6 +14,7 @@ class TemplateController extends Controller
     public function __construct(FileManager $fileManager)
     {
         $this->fileManager = $fileManager;
+        $this->middleware('can:manage-templates');
     }
 
     public function index() {

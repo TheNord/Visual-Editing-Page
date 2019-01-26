@@ -21,6 +21,7 @@
     <li><a href="{{ route('admin.menu.index') }}"><i class="fa fa-list-ul"></i> <span>Меню</span></a></li>
     <li><a href="{{ route('admin.widgets.index') }}"><i class="fa fa-th"></i> <span>Виджеты</span></a></li>
     <li><a href="{{ route('admin.template-manager.index') }}"><i class="fa fa-files-o"></i> <span>Менеджер шаблонов</span></a></li>
+    <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> <span>Пользователи</span></a></li>
     <li><a href="{{ route('admin.settings.index') }}"><i class="fa fa-cogs"></i> <span>Настройки сайта</span></a></li>
 
 </ul>

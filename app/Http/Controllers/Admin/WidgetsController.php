@@ -9,6 +9,11 @@ use Illuminate\Filesystem\Filesystem;
 
 class WidgetsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:manage-widgets');
+    }
+
     public function index()
     {
         $widgets = Widget::all();

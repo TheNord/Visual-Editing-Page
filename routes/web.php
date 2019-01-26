@@ -21,6 +21,9 @@ Route::group(
 
         Route::get('/', 'AdminController@index')->name('home');
 
+        // Admin >> Users
+        Route::resource('users', 'UsersController')->except('show');
+
         // Admin >> Pages
         Route::resource('pages', 'PageController')->except('show');
 

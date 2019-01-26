@@ -8,6 +8,11 @@ use App\Entity\Post\Tag;
 
 class TagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:manage-tags');
+    }
+
     /**
      * Display a listing of the resource.
      *

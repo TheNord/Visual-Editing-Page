@@ -7,7 +7,6 @@ use App\Entity\Post\Post;
 use App\Entity\Page;
 use App\Entity\Menu;
 use App\Entity\Post\TagRelationship;
-use App\Entity\Settings;
 
 class DatabaseSeeder extends Seeder
 {

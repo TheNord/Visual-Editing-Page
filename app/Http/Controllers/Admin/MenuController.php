@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:manage-menu');
+    }
+
     public function index()
     {
         $menus = Menu::defaultOrder()->withDepth()->get();
