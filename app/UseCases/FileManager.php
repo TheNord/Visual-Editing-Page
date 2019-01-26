@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\UseCases;
+namespace App\UseCases;
 
 use Cache;
 use Storage;
@@ -15,6 +15,12 @@ class FileManager
         $this->disk = 'template_manage';
     }
 
+    /**
+     * Get contents (files and folders) by path
+     *
+     * @param $path
+     * @return array
+     */
     public function content($path)
     {
         $content = Storage::disk($this->disk)->listContents($path);
@@ -29,7 +35,7 @@ class FileManager
     }
 
     /**
-     * Get page templates
+     * Get templates for pages
      *
      * @return array
      *

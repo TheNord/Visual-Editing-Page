@@ -6,6 +6,7 @@ use App\Entity\Menu;
 use App\Entity\Page;
 use App\Entity\Post\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Menus\CreateRequest;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -30,15 +31,8 @@ class MenuController extends Controller
         return view('admin.menu.create', compact('parents', 'pages', 'categories'));
     }
 
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'page_id' => 'nullable|integer|exists:pages,id',
-            'category_id' => 'nullable|integer|exists:posts_categories,id',
-            'parent_id' => 'nullable|integer|exists:menu,id'
-        ]);
-
         $menu = Menu::create([
             'title' => $request['title'],
             'page_id' => $request['page_id'],
@@ -66,15 +60,8 @@ class MenuController extends Controller
         return view('admin.menu.edit', compact('menu', 'parents', 'pages', 'categories'));
     }
 
-    public function update(Request $request, Menu $menu)
+    public function update(CreateRequest $request, Menu $menu)
     {
-        $request->validate([
-            'title' => 'required',
-            'page_id' => 'nullable|integer|exists:pages,id',
-            'category_id' => 'nullable|integer|exists:posts_categories,id',
-            'parent_id' => 'nullable|integer',
-        ]);
-
         $menu->update([
             'title' => $request['title'],
             'page_id' => $request['page_id'],
@@ -94,6 +81,12 @@ class MenuController extends Controller
         return redirect()->route('admin.menu.index', $menu);
     }
 
+    /**
+     * Change the position of menus items
+     *
+     * @param Menu $menu
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function first(Menu $menu)
     {
         if ($first = $menu->siblings()->defaultOrder()->first()) {

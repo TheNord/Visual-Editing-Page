@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\UseCases\FileManager;
+use App\UseCases\FileManager;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Storage;
@@ -17,8 +17,9 @@ class TemplateController extends Controller
         $this->middleware('can:manage-templates');
     }
 
-    public function index() {
-    	return view('admin.template-manager.index');
+    public function index()
+    {
+        return view('admin.template-manager.index');
     }
 
     public function explore(Request $request)
@@ -29,12 +30,14 @@ class TemplateController extends Controller
 
     }
 
-    public function load(Request $request) {
-    	return Storage::disk('template_manage')->download($request->input('path'));
+    public function load(Request $request)
+    {
+        return Storage::disk('template_manage')->download($request->input('path'));
     }
 
-    public function update(Request $request) {
-    	$result = Storage::disk('template_manage')->put($request->input('path'), $request->input('code'));
-    	return response(['result' => $result], 200);
+    public function update(Request $request)
+    {
+        $result = Storage::disk('template_manage')->put($request->input('path'), $request->input('code'));
+        return response(['result' => $result], 200);
     }
 }

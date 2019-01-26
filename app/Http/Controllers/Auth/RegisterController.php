@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Entity\User;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Auth\Events\Registered;
@@ -49,7 +49,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Entity\User
      */
     protected function create(array $data)
     {

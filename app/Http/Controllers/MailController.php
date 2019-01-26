@@ -6,7 +6,6 @@ use App\Entity\Project\Settings;
 use App\Mail\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use PhpParser\Node\Stmt\DeclareDeclare;
 
 class MailController extends Controller
 {

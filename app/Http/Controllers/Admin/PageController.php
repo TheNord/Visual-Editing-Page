@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Page;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Pages\PageRequest;
-use App\Http\UseCases\FileManager;
+use App\UseCases\FileManager;
 
 class PageController extends Controller
 {
@@ -24,10 +24,6 @@ class PageController extends Controller
         return view('admin.pages.index', compact('pages'));
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
     public function create()
     {
         $parents = Page::defaultOrder()->withDepth()->get();
@@ -51,13 +47,6 @@ class PageController extends Controller
         return redirect()->route('admin.pages.index', $page);
     }
 
-    /**
-     * Edit existing page
-     *
-     * @param Page $page
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
     public function edit(Page $page)
     {
         $parents = Page::defaultOrder()->withDepth()->get();
@@ -68,7 +57,6 @@ class PageController extends Controller
 
     public function update(PageRequest $request, Page $page)
     {
-        //dd($request['template']);
         $page->update([
             'title' => $request['title'],
             'slug' => $request['slug'],

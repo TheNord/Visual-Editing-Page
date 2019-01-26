@@ -18,17 +18,17 @@
     @endif
 
     @if ($category->hasPosts())
-        @foreach($category->posts as $post)
-            <h2>{{ $post->title }}</h2>
+        @foreach($category->posts as $postItem)
+            <h2>{{ $postItem->title }}</h2>
             <hr />
 
-            @if($post->hasMiniature())
-                <img src="{{ asset($post->miniature) }}" class="img-responsive " style="max-height:200px; float:left; padding-right: 15px">
-            @endif                
-            {{ $post->shortlyContent() }}
+            @if($postItem->hasMiniature())
+                <img src="{{ asset($post2->miniature) }}" class="img-responsive " style="max-height:200px; float:left; padding-right: 15px">
+            @endif
+            {{ $postItem->shortlyContent() }}
 
             <br /><br />
-            <a href="{{ route('category.post.show', [$category, $post]) }}">Подробнее</a>
+            <a href="{{ route('category.post.show', [$category, $postItem]) }}">Подробнее</a>
             <div class="clearfix"></div>
         @endforeach
     @else

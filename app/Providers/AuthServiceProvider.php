@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\User;
+use App\Entity\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

@@ -6,7 +6,7 @@ use App\Entity\Page;
 use App\Entity\Project\Settings;
 use App\Http\Middleware\ProcessWidgets;
 use App\Http\Router\PagePath;
-use App\Http\UseCases\FileManager;
+use App\UseCases\FileManager;
 
 class PageController extends Controller
 {
@@ -18,6 +18,12 @@ class PageController extends Controller
         $this->fileManager = $fileManager;
     }
 
+    /**
+     * Show single page
+     *
+     * @param PagePath $path
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(PagePath $path)
     {
         $page = $path->page;
@@ -26,6 +32,11 @@ class PageController extends Controller
         return view($template, compact('page'));
     }
 
+    /**
+     * Show home page (homepage is set in settings)
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showHome()
     {
         $pageId = Settings::where('name', 'home_page')->first();
@@ -35,6 +46,12 @@ class PageController extends Controller
         return view($template, compact('page'));
     }
 
+    /**
+     * Get template for page
+     *
+     * @param $page
+     * @return string
+     */
     private function getTemplate($page)
     {
         return $this->fileManager->checkExist($page->template) ?

@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.21 on 2019-01-18 17:32:18.
+ * Generated for Laravel 5.7.21 on 2019-01-26 14:22:27.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1632,7 +1632,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \App\Entity\User|null 
          * @static 
          */ 
         public static function user()
@@ -1667,7 +1667,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \App\Entity\User|false 
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1731,7 +1731,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \App\Entity\User|false 
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1793,7 +1793,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \App\Entity\User 
          * @static 
          */ 
         public static function getLastAttempted()
@@ -1895,7 +1895,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \App\Entity\User|null 
          * @static 
          */ 
         public static function getUser()
@@ -1941,7 +1941,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if current user is authenticated. If not, throw an exception.
          *
-         * @return \App\User 
+         * @return \App\Entity\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
@@ -12597,6 +12597,20 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the evaluated view contents for the given view.
          *
+         * @param string $view
+         * @param array $data
+         * @param array $mergeData
+         * @return \Illuminate\Contracts\View\View|string|\View 
+         * @static 
+         */ 
+        public static function make($view, $data = array(), $mergeData = array())
+        {
+            return \Webwizo\Shortcodes\View\Factory::make($view, $data, $mergeData);
+        }
+        
+        /**
+         * Get the evaluated view contents for the given view.
+         *
          * @param string $path
          * @param \Illuminate\Contracts\Support\Arrayable|array $data
          * @param array $mergeData
@@ -12605,21 +12619,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function file($path, $data = array(), $mergeData = array())
         {
-            return \Illuminate\View\Factory::file($path, $data, $mergeData);
-        }
-        
-        /**
-         * Get the evaluated view contents for the given view.
-         *
-         * @param string $view
-         * @param \Illuminate\Contracts\Support\Arrayable|array $data
-         * @param array $mergeData
-         * @return \Illuminate\Contracts\View\View 
-         * @static 
-         */ 
-        public static function make($view, $data = array(), $mergeData = array())
-        {
-            return \Illuminate\View\Factory::make($view, $data, $mergeData);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::file($path, $data, $mergeData);
         }
         
         /**
@@ -12634,7 +12635,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function first($views, $data = array(), $mergeData = array())
         {
-            return \Illuminate\View\Factory::first($views, $data, $mergeData);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::first($views, $data, $mergeData);
         }
         
         /**
@@ -12649,7 +12651,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function renderWhen($condition, $view, $data = array(), $mergeData = array())
         {
-            return \Illuminate\View\Factory::renderWhen($condition, $view, $data, $mergeData);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::renderWhen($condition, $view, $data, $mergeData);
         }
         
         /**
@@ -12664,7 +12667,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function renderEach($view, $data, $iterator, $empty = 'raw|')
         {
-            return \Illuminate\View\Factory::renderEach($view, $data, $iterator, $empty);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::renderEach($view, $data, $iterator, $empty);
         }
         
         /**
@@ -12676,7 +12680,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function exists($view)
         {
-            return \Illuminate\View\Factory::exists($view);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::exists($view);
         }
         
         /**
@@ -12689,7 +12694,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getEngineFromPath($path)
         {
-            return \Illuminate\View\Factory::getEngineFromPath($path);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getEngineFromPath($path);
         }
         
         /**
@@ -12702,7 +12708,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function share($key, $value = null)
         {
-            return \Illuminate\View\Factory::share($key, $value);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::share($key, $value);
         }
         
         /**
@@ -12713,7 +12720,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function incrementRender()
         {
-            \Illuminate\View\Factory::incrementRender();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::incrementRender();
         }
         
         /**
@@ -12724,7 +12732,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function decrementRender()
         {
-            \Illuminate\View\Factory::decrementRender();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::decrementRender();
         }
         
         /**
@@ -12735,7 +12744,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function doneRendering()
         {
-            return \Illuminate\View\Factory::doneRendering();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::doneRendering();
         }
         
         /**
@@ -12747,7 +12757,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function addLocation($location)
         {
-            \Illuminate\View\Factory::addLocation($location);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::addLocation($location);
         }
         
         /**
@@ -12760,7 +12771,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function addNamespace($namespace, $hints)
         {
-            return \Illuminate\View\Factory::addNamespace($namespace, $hints);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::addNamespace($namespace, $hints);
         }
         
         /**
@@ -12773,7 +12785,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function prependNamespace($namespace, $hints)
         {
-            return \Illuminate\View\Factory::prependNamespace($namespace, $hints);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::prependNamespace($namespace, $hints);
         }
         
         /**
@@ -12786,7 +12799,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function replaceNamespace($namespace, $hints)
         {
-            return \Illuminate\View\Factory::replaceNamespace($namespace, $hints);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::replaceNamespace($namespace, $hints);
         }
         
         /**
@@ -12800,7 +12814,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function addExtension($extension, $engine, $resolver = null)
         {
-            \Illuminate\View\Factory::addExtension($extension, $engine, $resolver);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::addExtension($extension, $engine, $resolver);
         }
         
         /**
@@ -12811,7 +12826,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function flushState()
         {
-            \Illuminate\View\Factory::flushState();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::flushState();
         }
         
         /**
@@ -12822,7 +12838,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function flushStateIfDoneRendering()
         {
-            \Illuminate\View\Factory::flushStateIfDoneRendering();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::flushStateIfDoneRendering();
         }
         
         /**
@@ -12833,7 +12850,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getExtensions()
         {
-            return \Illuminate\View\Factory::getExtensions();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getExtensions();
         }
         
         /**
@@ -12844,7 +12862,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getEngineResolver()
         {
-            return \Illuminate\View\Factory::getEngineResolver();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getEngineResolver();
         }
         
         /**
@@ -12855,7 +12874,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getFinder()
         {
-            return \Illuminate\View\Factory::getFinder();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getFinder();
         }
         
         /**
@@ -12867,7 +12887,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function setFinder($finder)
         {
-            \Illuminate\View\Factory::setFinder($finder);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::setFinder($finder);
         }
         
         /**
@@ -12878,7 +12899,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function flushFinderCache()
         {
-            \Illuminate\View\Factory::flushFinderCache();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::flushFinderCache();
         }
         
         /**
@@ -12889,7 +12911,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getDispatcher()
         {
-            return \Illuminate\View\Factory::getDispatcher();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getDispatcher();
         }
         
         /**
@@ -12901,7 +12924,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function setDispatcher($events)
         {
-            \Illuminate\View\Factory::setDispatcher($events);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::setDispatcher($events);
         }
         
         /**
@@ -12912,7 +12936,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getContainer()
         {
-            return \Illuminate\View\Factory::getContainer();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getContainer();
         }
         
         /**
@@ -12924,7 +12949,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function setContainer($container)
         {
-            \Illuminate\View\Factory::setContainer($container);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::setContainer($container);
         }
         
         /**
@@ -12937,7 +12963,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function shared($key, $default = null)
         {
-            return \Illuminate\View\Factory::shared($key, $default);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::shared($key, $default);
         }
         
         /**
@@ -12948,7 +12975,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getShared()
         {
-            return \Illuminate\View\Factory::getShared();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getShared();
         }
         
         /**
@@ -12961,7 +12989,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function macro($name, $macro)
         {
-            \Illuminate\View\Factory::macro($name, $macro);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::macro($name, $macro);
         }
         
         /**
@@ -12974,7 +13003,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function mixin($mixin)
         {
-            \Illuminate\View\Factory::mixin($mixin);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::mixin($mixin);
         }
         
         /**
@@ -12986,7 +13016,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function hasMacro($name)
         {
-            return \Illuminate\View\Factory::hasMacro($name);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::hasMacro($name);
         }
         
         /**
@@ -12999,7 +13030,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function startComponent($name, $data = array())
         {
-            \Illuminate\View\Factory::startComponent($name, $data);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::startComponent($name, $data);
         }
         
         /**
@@ -13010,7 +13042,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function renderComponent()
         {
-            return \Illuminate\View\Factory::renderComponent();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::renderComponent();
         }
         
         /**
@@ -13023,7 +13056,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function slot($name, $content = null)
         {
-            \Illuminate\View\Factory::slot($name, $content);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::slot($name, $content);
         }
         
         /**
@@ -13034,7 +13068,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function endSlot()
         {
-            \Illuminate\View\Factory::endSlot();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::endSlot();
         }
         
         /**
@@ -13047,7 +13082,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function creator($views, $callback)
         {
-            return \Illuminate\View\Factory::creator($views, $callback);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::creator($views, $callback);
         }
         
         /**
@@ -13059,7 +13095,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function composers($composers)
         {
-            return \Illuminate\View\Factory::composers($composers);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::composers($composers);
         }
         
         /**
@@ -13072,7 +13109,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function composer($views, $callback)
         {
-            return \Illuminate\View\Factory::composer($views, $callback);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::composer($views, $callback);
         }
         
         /**
@@ -13084,7 +13122,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function callComposer($view)
         {
-            \Illuminate\View\Factory::callComposer($view);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::callComposer($view);
         }
         
         /**
@@ -13096,7 +13135,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function callCreator($view)
         {
-            \Illuminate\View\Factory::callCreator($view);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::callCreator($view);
         }
         
         /**
@@ -13109,7 +13149,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function startSection($section, $content = null)
         {
-            \Illuminate\View\Factory::startSection($section, $content);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::startSection($section, $content);
         }
         
         /**
@@ -13122,7 +13163,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function inject($section, $content)
         {
-            \Illuminate\View\Factory::inject($section, $content);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::inject($section, $content);
         }
         
         /**
@@ -13133,7 +13175,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function yieldSection()
         {
-            return \Illuminate\View\Factory::yieldSection();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::yieldSection();
         }
         
         /**
@@ -13146,7 +13189,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function stopSection($overwrite = false)
         {
-            return \Illuminate\View\Factory::stopSection($overwrite);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::stopSection($overwrite);
         }
         
         /**
@@ -13158,7 +13202,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function appendSection()
         {
-            return \Illuminate\View\Factory::appendSection();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::appendSection();
         }
         
         /**
@@ -13171,7 +13216,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function yieldContent($section, $default = '')
         {
-            return \Illuminate\View\Factory::yieldContent($section, $default);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::yieldContent($section, $default);
         }
         
         /**
@@ -13183,7 +13229,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function parentPlaceholder($section = '')
         {
-            return \Illuminate\View\Factory::parentPlaceholder($section);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::parentPlaceholder($section);
         }
         
         /**
@@ -13195,7 +13242,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function hasSection($name)
         {
-            return \Illuminate\View\Factory::hasSection($name);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::hasSection($name);
         }
         
         /**
@@ -13208,7 +13256,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getSection($name, $default = null)
         {
-            return \Illuminate\View\Factory::getSection($name, $default);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getSection($name, $default);
         }
         
         /**
@@ -13219,7 +13268,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getSections()
         {
-            return \Illuminate\View\Factory::getSections();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getSections();
         }
         
         /**
@@ -13230,7 +13280,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function flushSections()
         {
-            \Illuminate\View\Factory::flushSections();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::flushSections();
         }
         
         /**
@@ -13242,7 +13293,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function addLoop($data)
         {
-            \Illuminate\View\Factory::addLoop($data);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::addLoop($data);
         }
         
         /**
@@ -13253,7 +13305,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function incrementLoopIndices()
         {
-            \Illuminate\View\Factory::incrementLoopIndices();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::incrementLoopIndices();
         }
         
         /**
@@ -13264,7 +13317,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function popLoop()
         {
-            \Illuminate\View\Factory::popLoop();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::popLoop();
         }
         
         /**
@@ -13275,7 +13329,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getLastLoop()
         {
-            return \Illuminate\View\Factory::getLastLoop();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getLastLoop();
         }
         
         /**
@@ -13286,7 +13341,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function getLoopStack()
         {
-            return \Illuminate\View\Factory::getLoopStack();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::getLoopStack();
         }
         
         /**
@@ -13299,7 +13355,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function startPush($section, $content = '')
         {
-            \Illuminate\View\Factory::startPush($section, $content);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::startPush($section, $content);
         }
         
         /**
@@ -13311,7 +13368,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function stopPush()
         {
-            return \Illuminate\View\Factory::stopPush();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::stopPush();
         }
         
         /**
@@ -13324,7 +13382,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function startPrepend($section, $content = '')
         {
-            \Illuminate\View\Factory::startPrepend($section, $content);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::startPrepend($section, $content);
         }
         
         /**
@@ -13336,7 +13395,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function stopPrepend()
         {
-            return \Illuminate\View\Factory::stopPrepend();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::stopPrepend();
         }
         
         /**
@@ -13349,7 +13409,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function yieldPushContent($section, $default = '')
         {
-            return \Illuminate\View\Factory::yieldPushContent($section, $default);
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::yieldPushContent($section, $default);
         }
         
         /**
@@ -13360,7 +13421,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function flushStacks()
         {
-            \Illuminate\View\Factory::flushStacks();
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::flushStacks();
         }
         
         /**
@@ -13372,7 +13434,8 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function startTranslation($replacements = array())
         {
-            \Illuminate\View\Factory::startTranslation($replacements);
+            //Method inherited from \Illuminate\View\Factory            
+            \Webwizo\Shortcodes\View\Factory::startTranslation($replacements);
         }
         
         /**
@@ -13383,7 +13446,1194 @@ namespace Illuminate\Support\Facades {
          */ 
         public static function renderTranslation()
         {
-            return \Illuminate\View\Factory::renderTranslation();
+            //Method inherited from \Illuminate\View\Factory            
+            return \Webwizo\Shortcodes\View\Factory::renderTranslation();
+        }
+         
+    }
+ 
+}
+
+namespace Collective\Html { 
+
+    /**
+     * 
+     *
+     * @see \Collective\Html\FormBuilder
+     */ 
+    class FormFacade {
+        
+        /**
+         * Open up a new HTML form.
+         *
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function open($options = array())
+        {
+            return \Collective\Html\FormBuilder::open($options);
+        }
+        
+        /**
+         * Create a new model based form builder.
+         *
+         * @param mixed $model
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function model($model, $options = array())
+        {
+            return \Collective\Html\FormBuilder::model($model, $options);
+        }
+        
+        /**
+         * Set the model instance on the form builder.
+         *
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */ 
+        public static function setModel($model)
+        {
+            \Collective\Html\FormBuilder::setModel($model);
+        }
+        
+        /**
+         * Get the current model instance on the form builder.
+         *
+         * @return mixed $model
+         * @static 
+         */ 
+        public static function getModel()
+        {
+            return \Collective\Html\FormBuilder::getModel();
+        }
+        
+        /**
+         * Close the current form.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function close()
+        {
+            return \Collective\Html\FormBuilder::close();
+        }
+        
+        /**
+         * Generate a hidden field with the current CSRF token.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function token()
+        {
+            return \Collective\Html\FormBuilder::token();
+        }
+        
+        /**
+         * Create a form label element.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @param bool $escape_html
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function label($name, $value = null, $options = array(), $escape_html = true)
+        {
+            return \Collective\Html\FormBuilder::label($name, $value, $options, $escape_html);
+        }
+        
+        /**
+         * Create a form input field.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function input($type, $name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::input($type, $name, $value, $options);
+        }
+        
+        /**
+         * Create a text input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function text($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::text($name, $value, $options);
+        }
+        
+        /**
+         * Create a password input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function password($name, $options = array())
+        {
+            return \Collective\Html\FormBuilder::password($name, $options);
+        }
+        
+        /**
+         * Create a range input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function range($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::range($name, $value, $options);
+        }
+        
+        /**
+         * Create a hidden input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function hidden($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::hidden($name, $value, $options);
+        }
+        
+        /**
+         * Create a search input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function search($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::search($name, $value, $options);
+        }
+        
+        /**
+         * Create an e-mail input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function email($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::email($name, $value, $options);
+        }
+        
+        /**
+         * Create a tel input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tel($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::tel($name, $value, $options);
+        }
+        
+        /**
+         * Create a number input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function number($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::number($name, $value, $options);
+        }
+        
+        /**
+         * Create a date input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function date($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::date($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetime($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::datetime($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime-local input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetimeLocal($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::datetimeLocal($name, $value, $options);
+        }
+        
+        /**
+         * Create a time input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function time($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::time($name, $value, $options);
+        }
+        
+        /**
+         * Create a url input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function url($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::url($name, $value, $options);
+        }
+        
+        /**
+         * Create a week input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function week($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::week($name, $value, $options);
+        }
+        
+        /**
+         * Create a file input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function file($name, $options = array())
+        {
+            return \Collective\Html\FormBuilder::file($name, $options);
+        }
+        
+        /**
+         * Create a textarea input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function textarea($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::textarea($name, $value, $options);
+        }
+        
+        /**
+         * Create a select box field.
+         *
+         * @param string $name
+         * @param array $list
+         * @param string|bool $selected
+         * @param array $selectAttributes
+         * @param array $optionsAttributes
+         * @param array $optgroupsAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function select($name, $list = array(), $selected = null, $selectAttributes = array(), $optionsAttributes = array(), $optgroupsAttributes = array())
+        {
+            return \Collective\Html\FormBuilder::select($name, $list, $selected, $selectAttributes, $optionsAttributes, $optgroupsAttributes);
+        }
+        
+        /**
+         * Create a select range field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectRange($name, $begin, $end, $selected = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::selectRange($name, $begin, $end, $selected, $options);
+        }
+        
+        /**
+         * Create a select year field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return mixed 
+         * @static 
+         */ 
+        public static function selectYear()
+        {
+            return \Collective\Html\FormBuilder::selectYear();
+        }
+        
+        /**
+         * Create a select month field.
+         *
+         * @param string $name
+         * @param string $selected
+         * @param array $options
+         * @param string $format
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B')
+        {
+            return \Collective\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
+        }
+        
+        /**
+         * Get the select option for the given value.
+         *
+         * @param string $display
+         * @param string $value
+         * @param string $selected
+         * @param array $attributes
+         * @param array $optgroupAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function getSelectOption($display, $value, $selected, $attributes = array(), $optgroupAttributes = array())
+        {
+            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected, $attributes, $optgroupAttributes);
+        }
+        
+        /**
+         * Create a checkbox input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function checkbox($name, $value = 1, $checked = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::checkbox($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a radio button input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function radio($name, $value = null, $checked = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::radio($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a HTML reset input element.
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function reset($value, $attributes = array())
+        {
+            return \Collective\Html\FormBuilder::reset($value, $attributes);
+        }
+        
+        /**
+         * Create a HTML image input element.
+         *
+         * @param string $url
+         * @param string $name
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $name = null, $attributes = array())
+        {
+            return \Collective\Html\FormBuilder::image($url, $name, $attributes);
+        }
+        
+        /**
+         * Create a month input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function month($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::month($name, $value, $options);
+        }
+        
+        /**
+         * Create a color input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function color($name, $value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::color($name, $value, $options);
+        }
+        
+        /**
+         * Create a submit button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function submit($value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::submit($value, $options);
+        }
+        
+        /**
+         * Create a button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function button($value = null, $options = array())
+        {
+            return \Collective\Html\FormBuilder::button($value, $options);
+        }
+        
+        /**
+         * Create a datalist box field.
+         *
+         * @param string $id
+         * @param array $list
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datalist($id, $list = array())
+        {
+            return \Collective\Html\FormBuilder::datalist($id, $list);
+        }
+        
+        /**
+         * Get the ID attribute for a field name.
+         *
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function getIdAttribute($name, $attributes)
+        {
+            return \Collective\Html\FormBuilder::getIdAttribute($name, $attributes);
+        }
+        
+        /**
+         * Get the value that should be assigned to the field.
+         *
+         * @param string $name
+         * @param string $value
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getValueAttribute($name, $value = null)
+        {
+            return \Collective\Html\FormBuilder::getValueAttribute($name, $value);
+        }
+        
+        /**
+         * Take Request in fill process
+         *
+         * @param bool $consider
+         * @static 
+         */ 
+        public static function considerRequest($consider = true)
+        {
+            return \Collective\Html\FormBuilder::considerRequest($consider);
+        }
+        
+        /**
+         * Get a value from the session's old input.
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function old($name)
+        {
+            return \Collective\Html\FormBuilder::old($name);
+        }
+        
+        /**
+         * Determine if the old input is empty.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function oldInputIsEmpty()
+        {
+            return \Collective\Html\FormBuilder::oldInputIsEmpty();
+        }
+        
+        /**
+         * Get the session store implementation.
+         *
+         * @return \Illuminate\Contracts\Session\Session $session
+         * @static 
+         */ 
+        public static function getSessionStore()
+        {
+            return \Collective\Html\FormBuilder::getSessionStore();
+        }
+        
+        /**
+         * Set the session store implementation.
+         *
+         * @param \Illuminate\Contracts\Session\Session $session
+         * @return $this 
+         * @static 
+         */ 
+        public static function setSessionStore($session)
+        {
+            return \Collective\Html\FormBuilder::setSessionStore($session);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            \Collective\Html\FormBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin)
+        {
+            \Collective\Html\FormBuilder::mixin($mixin);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            return \Collective\Html\FormBuilder::hasMacro($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+            return \Collective\Html\FormBuilder::macroCall($method, $parameters);
+        }
+        
+        /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+            \Collective\Html\FormBuilder::component($name, $view, $signature);
+        }
+        
+        /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+            return \Collective\Html\FormBuilder::hasComponent($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+            return \Collective\Html\FormBuilder::componentCall($method, $parameters);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     * @see \Collective\Html\HtmlBuilder
+     */ 
+    class HtmlFacade {
+        
+        /**
+         * Convert an HTML string to entities.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function entities($value)
+        {
+            return \Collective\Html\HtmlBuilder::entities($value);
+        }
+        
+        /**
+         * Convert entities to HTML characters.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function decode($value)
+        {
+            return \Collective\Html\HtmlBuilder::decode($value);
+        }
+        
+        /**
+         * Generate a link to a JavaScript file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function script($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::script($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a link to a CSS file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function style($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::style($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate an HTML image element.
+         *
+         * @param string $url
+         * @param string $alt
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $alt = null, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::image($url, $alt, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a link to a Favicon file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function favicon($url, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::favicon($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function link($url, $title = null, $attributes = array(), $secure = null, $escape = true)
+        {
+            return \Collective\Html\HtmlBuilder::link($url, $title, $attributes, $secure, $escape);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function secureLink($url, $title = null, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::secureLink($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAsset($url, $title = null, $attributes = array(), $secure = null)
+        {
+            return \Collective\Html\HtmlBuilder::linkAsset($url, $title, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkSecureAsset($url, $title = null, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkSecureAsset($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a named route.
+         *
+         * @param string $name
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkRoute($name, $title = null, $parameters = array(), $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkRoute($name, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a controller action.
+         *
+         * @param string $action
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAction($action, $title = null, $parameters = array(), $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::linkAction($action, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an email address.
+         *
+         * @param string $email
+         * @param string $title
+         * @param array $attributes
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function mailto($email, $title = null, $attributes = array(), $escape = true)
+        {
+            return \Collective\Html\HtmlBuilder::mailto($email, $title, $attributes, $escape);
+        }
+        
+        /**
+         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+         *
+         * @param string $email
+         * @return string 
+         * @static 
+         */ 
+        public static function email($email)
+        {
+            return \Collective\Html\HtmlBuilder::email($email);
+        }
+        
+        /**
+         * Generates non-breaking space entities based on number supplied.
+         *
+         * @param int $num
+         * @return string 
+         * @static 
+         */ 
+        public static function nbsp($num = 1)
+        {
+            return \Collective\Html\HtmlBuilder::nbsp($num);
+        }
+        
+        /**
+         * Generate an ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ol($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::ol($list, $attributes);
+        }
+        
+        /**
+         * Generate an un-ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ul($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::ul($list, $attributes);
+        }
+        
+        /**
+         * Generate a description list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function dl($list, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::dl($list, $attributes);
+        }
+        
+        /**
+         * Build an HTML attribute string from an array.
+         *
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function attributes($attributes)
+        {
+            return \Collective\Html\HtmlBuilder::attributes($attributes);
+        }
+        
+        /**
+         * Obfuscate a string to prevent spam-bots from sniffing it.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function obfuscate($value)
+        {
+            return \Collective\Html\HtmlBuilder::obfuscate($value);
+        }
+        
+        /**
+         * Generate a meta tag.
+         *
+         * @param string $name
+         * @param string $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function meta($name, $content, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::meta($name, $content, $attributes);
+        }
+        
+        /**
+         * Generate an html tag.
+         *
+         * @param string $tag
+         * @param mixed $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tag($tag, $content, $attributes = array())
+        {
+            return \Collective\Html\HtmlBuilder::tag($tag, $content, $attributes);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            \Collective\Html\HtmlBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin)
+        {
+            \Collective\Html\HtmlBuilder::mixin($mixin);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            return \Collective\Html\HtmlBuilder::hasMacro($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+            return \Collective\Html\HtmlBuilder::macroCall($method, $parameters);
+        }
+        
+        /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+            \Collective\Html\HtmlBuilder::component($name, $view, $signature);
+        }
+        
+        /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+            return \Collective\Html\HtmlBuilder::hasComponent($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+            return \Collective\Html\HtmlBuilder::componentCall($method, $parameters);
+        }
+         
+    }
+ 
+}
+
+namespace Webwizo\Shortcodes\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Shortcode {
+        
+        /**
+         * Register a new shortcode
+         *
+         * @param string $name
+         * @param callable|string $callback
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function register($name, $callback)
+        {
+            return \Webwizo\Shortcodes\Shortcode::register($name, $callback);
+        }
+        
+        /**
+         * Enable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function enable()
+        {
+            return \Webwizo\Shortcodes\Shortcode::enable();
+        }
+        
+        /**
+         * Disable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function disable()
+        {
+            return \Webwizo\Shortcodes\Shortcode::disable();
+        }
+        
+        /**
+         * Compile the given string
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function compile($value)
+        {
+            return \Webwizo\Shortcodes\Shortcode::compile($value);
+        }
+        
+        /**
+         * Remove all shortcode tags from the given content.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function strip($value)
+        {
+            return \Webwizo\Shortcodes\Shortcode::strip($value);
         }
          
     }
@@ -15819,6 +17069,12 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Form extends \Collective\Html\FormFacade {}
+
+    class Html extends \Collective\Html\HtmlFacade {}
+
+    class Shortcode extends \Webwizo\Shortcodes\Facades\Shortcode {}
  
 }
 

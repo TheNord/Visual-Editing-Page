@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Posts;
 
+use App\Http\Requests\Admin\Posts\CreateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Entity\Post\Post;
 use App\Entity\Post\Category;
 use App\Entity\Post\Tag;
-use Illuminate\Validation\Rule;
+
 
 class PostController extends Controller
 {
@@ -31,23 +32,8 @@ class PostController extends Controller
         return view('admin.posts.create', compact('categories', 'tags', 'statuses'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'category' => 'required',
-            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))],
-            'description' => 'nullable|string',
-            'keywords' => 'nullable|string',
-        ]);
-
         $post = Post::create([
             'title' => $request['title'],
             'slug' => str_slug($request['title']),
@@ -68,12 +54,6 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Post $post)
     {   
         $statuses = Post::statusList();
@@ -83,25 +63,8 @@ class PostController extends Controller
         return view('admin.posts.edit', compact('post', 'statuses', 'categories', 'tags'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
+    public function update(CreateRequest $request, Post $post)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'category' => 'required',
-            'miniature' => 'nullable|image',
-            'status' => ['required', 'string', 'max:255', Rule::in(array_keys(Post::statusList()))],
-            'description' => 'nullable|string',
-            'keywords' => 'nullable|string',
-        ]);
-
         $post->update([
             'title' => $request['title'],
             'slug' => str_slug($request['title']),
@@ -122,12 +85,6 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index', $post);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Post $post)
     {
         $post->delete();
