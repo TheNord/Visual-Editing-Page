@@ -13,7 +13,9 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'category_id')->latest();
+        return $this->hasMany(Post::class, 'category_id')
+            ->where('status', Post::TYPE_PUBLISHED)
+            ->latest();
     }
 
     public function hasDescription()
