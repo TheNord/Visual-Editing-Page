@@ -68,7 +68,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('template.auth.register');
+        return view('admin.auth.register');
     }
 
     /**
