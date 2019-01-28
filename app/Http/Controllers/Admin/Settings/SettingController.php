@@ -6,6 +6,7 @@ use App\Entity\Page;
 use App\Entity\Project\Settings;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class SettingController extends Controller
 {
@@ -37,6 +38,8 @@ class SettingController extends Controller
         $homePage->update([
             'value' => $request->page
         ]);
+
+        Cache::forget('home_page_id');
 
         return redirect()->route('admin.settings.index');
     }

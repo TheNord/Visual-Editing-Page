@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Page;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Pages\PageRequest;
+use Illuminate\Support\Facades\Cache;
 use App\UseCases\FileManager;
 
 class PageController extends Controller
@@ -67,12 +68,15 @@ class PageController extends Controller
             'template' => $request['template']
         ]);
 
+        Cache::forget('page_path_' . $page->id);
+
         return redirect()->route('admin.pages.index', $page);
     }
 
     public function destroy(Page $page)
     {
         $page->delete();
+        Cache::forget('page_path_' . $this->page->id);
         return redirect()->route('admin.pages.index');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entity\Page;
 use App\Entity\Project\Settings;
 use App\Http\Middleware\ProcessWidgets;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Router\PagePath;
 use App\UseCases\FileManager;
 
@@ -39,7 +40,10 @@ class PageController extends Controller
      */
     public function showHome()
     {
-        $pageId = Settings::where('name', 'home_page')->first();
+        $pageId = Cache::rememberForever('home_page_id', function () {
+            return Settings::where('name', 'home_page')->first();
+        });
+        
         $page = Page::find($pageId->value);
         $template = $this->getTemplate($page);
 
